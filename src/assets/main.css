@@ -1,0 +1,43 @@
+@import './base.css';
+@import '../theme.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+#app {
+  background: #2d2d2d;
+  font-weight: normal;
+}
+.router-link-active {
+  color: #fff;
+}
+.router-link-exact-active {
+  color: #fff;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Для Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+body {
+  font-family: 'Raleway';
+  font-size: 15px;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
