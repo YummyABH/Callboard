@@ -26,7 +26,7 @@ const buttons = ref([{ text: 'Каталог', to: '/catalog' }, { text: 'Лич
 			</li>
 		</div>
 		<div class="flex items-center flex-col w-screen md:hidden">
-			<div
+			<div to="/catalog"
 				class="w-full text-center text-xl py-3 before:w-full before:h-px before:absolute relative before:top-0 before:left-0 before:bg-black-301">
 				Каталог</div>
 			<div

@@ -2,12 +2,14 @@ import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { adAPIFilters } from '@/API/adRequest.js'
+import { adAPIPagination } from '@/API/paginationRequest.js'
 
 export const useFiltersProductsStore = defineStore('filter', () => {
   const route = useRoute()
-
   const data = ref([])
   const sortArg = ref()
+  const itemsPerPage = 5
+  const totatlItems = ref(0)
 
   watch(data, () => {
     sortData(sortArg.value)
@@ -18,28 +20,27 @@ export const useFiltersProductsStore = defineStore('filter', () => {
     minPrice: route?.query?.minPrice,
     maxPrice: route?.query?.maxPrice,
     regionId: route?.query?.regionId,
+    page: route?.query?.page,
+    limit: route?.query?.limit
+  })
+
+  const filterUrl = reactive({
     categoriesId: route?.query?.categoriesId,
     subcategoryId: route?.query?.subcategoryId
   })
 
-  /*const minPriceQuery = computed(() => route?.query?.minPrice)
-  const maxPriceQuery = computed(() => route?.query?.maxPrice)*/
-
   async function requestAd() {
     try {
       data.value = await adAPIFilters.create()
-    } catch (error) {}
+      totatlItems.value = data.value.length
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  /*watch((maxPriceQuery, minPriceQuery), () => {
-    if (maxPriceQuery === undefined && minPriceQuery === undefined) {
-      console.log(maxPriceQuery.value, minPriceQuery.value)
-      filterParams.minPrice = minPriceQuery
-      filterParams.maxPrice = maxPriceQuery
-      requestAd()
-    }
-  })*/
-
+  async function nextPage() {
+    data.value = await adAPIPagination.create()
+  }
   function sortData(sortArg) {
     switch (sortArg) {
       case 'maxPrice':
@@ -51,12 +52,11 @@ export const useFiltersProductsStore = defineStore('filter', () => {
           return a.price - b.price
         })
       default:
-        console.log(data.value)
     }
   }
 
   const filteredParams = computed(() => {
-    return Object.fromEntries(Object.entries(filterParams).filter(([key, value]) => value != null))
+    return Object.fromEntries(Object.entries(filterParams).filter(([, value]) => value != null))
   })
-  return { filterParams, data, filteredParams, sortArg, requestAd, sortData }
+  return { filterParams, data, filteredParams, sortArg, filterUrl, requestAd, sortData }
 })

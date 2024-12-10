@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router'
 import HomePage from '@/page/HomePage.vue'
 import CatalogPage from '@/page/CatalogPage.vue'
-import ContentContainer from '@/components/ContentContainer.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

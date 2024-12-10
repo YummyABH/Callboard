@@ -6,7 +6,8 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const props = defineProps({
 	category: String,
-	subcategory: Array
+	subcategory: Array,
+	subcategoryPath: String
 })
 const isOpen = ref(false)
 const stateStyle = computed(() => ({
@@ -14,9 +15,9 @@ const stateStyle = computed(() => ({
 }))
 
 function APIFilter(category, subcategory) {
-	const params = useFiltersProductsStore().filterParams
-	params.categoriesId = category
-	params.subcategoryId = subcategory
+	const filterUrl = useFiltersProductsStore().filterUrl
+	filterUrl.categoriesId = category
+	filterUrl.subcategoryId = subcategory
 	const paramsActive = useFiltersProductsStore().filteredParams
 	router.push({
 		query: paramsActive
@@ -36,8 +37,9 @@ function APIFilter(category, subcategory) {
 	</li>
 	<Transition>
 		<ul v-show="isOpen" v-if="subcategory" class="cursor-pointer">
-			<li v-for="item in subcategory" @click="APIFilter(props.category, item.subcategoryName)"
+			<li v-for="item in subcategory" @click="APIFilter(props.subcategoryPath, item.path)"
 				:class="[stateStyle.border]"
+				:key="item"
 				class="border-t-[1px] w-full flex self-center text-white bg-gray-800 font-semibold text-base  px-4 py-3">
 				{{ item.subcategoryName }}
 			</li>
