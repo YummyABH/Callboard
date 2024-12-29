@@ -9,7 +9,7 @@ import AppFooter from '@/components/AppFooter.vue'
     <RouterView v-slot="{ Component, route }">
       <AppHeader v-if="!route.meta.noHeader"></AppHeader>
       <main>
-        <component :is="Component"></component>
+        <component class="text-white" :is="Component"></component>
       </main>
       <AppFooter class=" " v-if="!route.meta.noFooter" />
     </RouterView>

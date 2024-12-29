@@ -25,6 +25,7 @@
   --text-custom-300: #e4002b;
   --text-custom-500: black;
   --text-custom-600: black;
+  --test: #2e2e2e;
 }
 
 .dark:root {

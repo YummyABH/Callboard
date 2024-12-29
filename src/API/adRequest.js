@@ -1,24 +1,19 @@
-import { computed } from 'vue'
 import { APIInstance } from './config'
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
 
 export const adAPIFilters = {
   async create() {
     try {
-      const filterUrl = useFiltersProductsStore().filterUrl
-      const url = computed(() => {
-        let strUrl = '/ad'
-        if (filterUrl.categoriesId) {
-          strUrl = strUrl + '/' + filterUrl.categoriesId
-        }
-        if (filterUrl.subcategoryId) {
-          strUrl = strUrl + '/' + filterUrl.subcategoryId
-        }
-        return strUrl
-      })
-      console.log('воооооот', url.value)
+      const categoriesActive = useFiltersProductsStore().filteredCategories
+      let pathStr = ''
+      if (Object.keys(categoriesActive).length === 1) {
+        pathStr = `/${categoriesActive.categoriesId}`
+      } else if (Object.keys(categoriesActive).length === 2) {
+        pathStr = `/${categoriesActive.categoriesId}/${categoriesActive.subcategoryId}`
+      }
+      const url = `/ad${pathStr}`
 
-      return await APIInstance(url.value, {
+      return await APIInstance(url, {
         method: 'GET',
         params: useFiltersProductsStore().filteredParams
       })

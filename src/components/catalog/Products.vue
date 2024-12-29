@@ -3,19 +3,18 @@ import CardProduct from '@/components/ui/card/CardProduct.vue'
 import FilterName from '@/components/catalog/filter/FilterName.vue'
 import Sorting from '@/components/catalog/Sorting.vue'
 import Filter from '@/components/ui/icons/Filter.vue'
-import PaginationProducts from '@/components/catalog/PaginationProducts.vue'
 import { adAPIFilters } from '@/API/adRequest.js'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
 
 const { data } = storeToRefs(useFiltersProductsStore())
+const totalItems = ref(useFiltersProductsStore().totalItems)
 onMounted(async () => {
   try {
-    data.value = await adAPIFilters.create()
-    let totatlItems = useFiltersProductsStore().totatlItems
-    totatlItems = data.value.length
-    console.log(totatlItems)
+    const response = await adAPIFilters.create()
+    totalItems.value = response.total
+    data.value = response.ads
   } catch (error) {
     console.log(error)
   }
@@ -34,16 +33,10 @@ const isOpen = defineModel('open')
       </div>
     </div>
     <div v-if="data[0]" class="lining-nums grid max-sm:grid-cols-2 gap-4">
-      <CardProduct
-        v-for="(item, index) in data"
-        :key="index"
-        :price="item.price"
-        :title="item.adName"
-        :subtitle="item.description"
-        :region="item.region"
-        :photo-url="item.photos"
-      />
+      <CardProduct v-for="(item, index) in data" :key="index" :price="item.price" :title="item.adName"
+        :subtitle="item.description" :region="item.region" :photo-url="item.photos" :name="item.firstName"
+        :surname="item.lastName" :whatsapp="item.whatsapplink" :telegram="item.telegramlink"
+        :phone="item.phonenumber" />
     </div>
-    <PaginationProducts />
   </div>
 </template>

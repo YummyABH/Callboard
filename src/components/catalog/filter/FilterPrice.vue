@@ -1,16 +1,15 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { ref } from 'vue'
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
-import { useRouter } from 'vue-router'
 
 const minPrice = ref(null)
 const maxPrice = ref(null)
 const isOpen = ref(true)
-const router = useRouter()
 
 function APIFilter() {
   const params = useFiltersProductsStore().filterParams
+
   if (
     minPrice.value > maxPrice.value &&
     typeof minPrice.value === Number &&
@@ -22,12 +21,15 @@ function APIFilter() {
     params.minPrice = minPrice.value
     params.maxPrice = maxPrice.value
   }
-  const paramsActive = useFiltersProductsStore().filteredParams
-  router.push({
-    query: paramsActive
-  })
-  useFiltersProductsStore().requestAd()
 }
+
+watch(minPrice, () => {
+  APIFilter()
+})
+
+watch(maxPrice, () => {
+  APIFilter()
+})
 
 // Удаляем все нечисловые символы
 function validateNumberInput(event) {
@@ -42,10 +44,10 @@ const stateStyle = computed(() => ({
 </script>
 
 <template>
-  <div class="flex flex-col mb-px">
+  <div class="flex flex-col border-b-[1px] border-green-400">
     <div
       @click="isOpen = !isOpen"
-      class="py-3 px-4 w-full cursor-pointer border-y bg-gray-500 border-gray-500 text-white flex gap-x-3 font-semibold text-xl"
+      class="hover:bg-gray-900 active:bg-gray-901 duration-200 py-3 px-4 w-full cursor-pointer border-y bg-gray-500 border-gray-500 text-white flex gap-x-3 font-semibold text-xl"
     >
       <span :class="[stateStyle.arrow]" class="duration-500 transition-all inline-block">></span
       >Цена
@@ -71,20 +73,6 @@ const stateStyle = computed(() => ({
             placeholder="до 868599"
             class="appearance-none outline-none text-white focus:border w-[47%] px-3 py-2 rounded-lg bg-black-390"
           />
-        </div>
-        <div class="w-full inline-block">
-          <button
-            @click="APIFilter()"
-            class="bg-green-400 inline-block py-2 w-2/3 text-white font-semibold text-base"
-          >
-            Поиск
-          </button>
-          <div
-            @click="(minPrice = null), (maxPrice = null)"
-            class="cursor-pointer inline-block text-white bg-red-800 w-1/3 text-center py-2"
-          >
-            Очистить
-          </div>
         </div>
       </div>
     </Transition>
