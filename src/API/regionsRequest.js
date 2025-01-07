@@ -1,7 +1,13 @@
 import { APIInstance } from './config'
 
-export const regionsAPI = {
-  async create() {
+const regionsAPI = () => {
+  const create = async () => {
     return await APIInstance('/region')
   }
+
+  return {
+    create
+  }
 }
+
+export { regionsAPI }

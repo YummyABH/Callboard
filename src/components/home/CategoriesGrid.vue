@@ -1,14 +1,14 @@
 <script setup>
 import ContentContainer from '@/components/ContentContainer.vue';
 import CategoriesItem from '@/components/home/CategoriesItem.vue'
-import { categoriesAPI } from '@/API/categoriesRequest.js'
+import { useCategoriesAPI } from '@/API/categoriesRequest.js'
 import { ref, onMounted } from 'vue';
 
 const data = ref()
+const { create } = useCategoriesAPI()
 
 onMounted(async () => {
-	data.value = await categoriesAPI.create()
-	//console.log('asdasd', data.value);
+	data.value = await create()
 })
 </script>
 

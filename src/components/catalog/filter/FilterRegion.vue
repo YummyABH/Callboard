@@ -5,9 +5,10 @@ import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
 
 const dataRegion = ref()
 const regionValue = ref('default')
+const { create } = regionsAPI()
 
 onMounted(async () => {
-  dataRegion.value = await regionsAPI.create()
+  dataRegion.value = await create()
 })
 
 function filterRegion() {

@@ -5,19 +5,20 @@ import { authAPI } from '@/API/auth.js'
 export const useAuthStore = defineStore('auth', () => {
   const user = ref(null)
   const token = ref(null)
+  const [register, login] = authAPI()
 
-  async function login(credentials) {
+  async function useLogin(credentials) {
     try {
-      const response = await authAPI.login(credentials)
+      const response = await login(credentials)
       user.value = response.user
       token.value = response.token
     } catch (error) {
       console.error('Ошибка входа:', error)
     }
   }
-  async function register(data) {
+  async function useRegister(data) {
     try {
-      const response = await authAPI.register(data)
+      const response = await register(data)
       user.value = response.user
       token.value = response.token
     } catch (error) {
@@ -30,5 +31,5 @@ export const useAuthStore = defineStore('auth', () => {
     token.value = null
   }
 
-  return { login, register, logout, user, token }
+  return { useLogin, useRegister, logout, user, token }
 })

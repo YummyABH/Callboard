@@ -1,19 +1,21 @@
 import { APIInstance } from './config'
 
-export const authAPI = {
-  async register(data) {
-    const url = '/user/register'
-    return await APIInstance(url, {
+const authAPI = () => {
+  const register = async (data) => {
+    return await APIInstance('/user/register', {
       method: 'POST',
       body: data
     })
-  },
+  }
 
-  async login(credentials) {
-    const url = '/user/login'
-    return await APIInstance(url, {
+  const login = async (credentials) => {
+    return await APIInstance('/user/login', {
       method: 'POST',
       body: credentials
     })
   }
+
+  return { register, login }
 }
+
+export { authAPI }
