@@ -10,3 +10,6 @@ export const APIInstance = $fetch.create({
     return Promise.reject('ошибка ', response)
   }
 })
+
+// error
+// trow error

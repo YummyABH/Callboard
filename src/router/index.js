@@ -1,12 +1,13 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/page/HomePage.vue'
+import UserPage from '@/page/UserPage.vue'
 import CatalogPage from '@/page/CatalogPage.vue'
 import AuthPage from '@/page/AuthPage.vue'
 import ForgotPasswordPage from '@/components/auth/ForgotPasswordForm.vue'
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -68,19 +69,35 @@ const router = createRouter({
           ]
         }
       ]
+    },
+    {
+      path: '/user',
+      name: 'user',
+      component: UserPage,
+      meta: { noBreadcrumbs: true }
     }
   ]
 })
+// const authData = {
+//   isAuth: true,
+//   role: 'admin'
+// }
+// const rulesPattern = {
+//   admin: ['/', '/login', '/catalog*'],
+//   manager: ['']
+// }
+// router.beforeEach((to, from, next) => {
+//   if (!authData.isAuth) next('/login')
+//   const isAccess = rulesPattern[authData.role].includes(to.path)
 
-//router.beforeEach((to, from, next) => {
-//  const isAuthenticated = localStorage.getItem('auth') // Простая проверка авторизации
-//
-//  // Проверка на доступ для гостей
-//  if (to.meta.guestOnly && isAuthenticated) {
-//    return next('/') // Редирект на главную, если пользователь уже авторизован
-//  }
-//
-//  next()
-//})
+//   if (!isAccess) {
+//     // Если текущий маршрут совпадает с предыдущим, предотвратить зацикливание
+//     if (to.path === from.path) {
+//       return next(false) // Остановить навигацию
+//     }
+//     return next(from)
+//   }
+//   next()
+// })
 
 export default router

@@ -1,25 +1,24 @@
 <script setup>
 import ContentContainer from '@/components/ContentContainer.vue';
+import CategoriesItem from '@/components/home/CategoriesItem.vue'
 import { categoriesAPI } from '@/API/categoriesRequest.js'
 import { ref, onMounted } from 'vue';
 
 const data = ref()
 
 onMounted(async () => {
-	try {
-		data.value = await categoriesAPI.create()
-		console.log(data.value)
-	} catch (error) {
-	}
+	data.value = await categoriesAPI.create()
+	//console.log('asdasd', data.value);
 })
 </script>
 
 <template>
 	<div class="bg-black-500 pb-20 pt-40">
 		<ContentContainer>
-			<div class="grid grid-cols-5 grid-rows-2 gap-5">
-				<div v-for="(item) in data" class="inline-block min-w-10 min-h-10 bg-red-900">{{ item.categoryName }}
-				</div>
+			<div class="grid grid-cols-7 gap-6 ">
+				<CategoriesItem v-for="(item, index) in data" :key="index" :path="data[index].path">{{
+					item.categoryName }}
+				</CategoriesItem>
 			</div>
 		</ContentContainer>
 	</div>

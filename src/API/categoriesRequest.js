@@ -2,13 +2,32 @@ import { APIInstance } from './config'
 
 export const categoriesAPI = {
   async create() {
-    try {
-      const url = '/category'
-      return await APIInstance(url, {
-        method: 'GET'
-      })
-    } catch (error) {
-      throw error
-    }
+    return await APIInstance('/category')
   }
 }
+// const useCategoriesAPI = async () => {
+
+//   const create = async () => {
+//     const url = '/category'
+//     return await APIInstance(url, {
+//       method: 'GET'
+//     })
+//   }
+
+//   const deletet = async () => {
+//     const url = '/category'
+//     return await APIInstance(url, {
+//       method: 'GET'
+//     })
+//   }
+
+//   return {
+//     create,
+//     deletet
+//   }
+// }
+
+// const [create, deletet] = useCategoriesAPI()
+
+// create()
+// deletet()

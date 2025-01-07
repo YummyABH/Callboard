@@ -2,7 +2,6 @@ import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { adAPIFilters } from '@/API/adRequest.js'
-//import { adAPIPagination } from '@/API/paginationRequest.js'
 
 export const useFiltersProductsStore = defineStore('filter', () => {
   const route = useRoute()

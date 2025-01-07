@@ -6,14 +6,14 @@ import Cart from '@/components/ui/icons/Cart.vue'
 import { ref } from 'vue'
 
 const isOpen = defineModel()
-const buttons = ref([{ text: 'Каталог', to: '/catalog' }, { text: 'Личный кабинет', to: '/' }])
+const buttons = ref([{ text: 'Каталог', to: '/catalog' }, { text: 'Личный кабинет', to: '/user' }])
 </script>
 
 <template>
 	<ul :class="isOpen ? 'max-md:before:absolute max-md:before:top-20 max-md:before:w-full max-md:before:h-[1px] max-md:before:bg-black-700 max-md:top-0 max-md:left-0' : 'max-md:-left-full max-md:top-0'"
 		class=" duration-500 max-md:min-h-full max-md:flex-col max-md:gap-y-4 max-md:w-full max-md:pt-40 max-md:px-10 max-md:bg-black-400 max-md:z-10 text-gray-300 flex gap-x-8 items-center max-md:fixed">
 		<div class="max-md:hidden flex gap-8 items-center">
-			<li v-for="(item) in buttons">
+			<li v-for="(item, index) in buttons" :key="index">
 				<RouterLink class="text-white hover:bg-inherit" :to="item.to">
 					<GlowingButton>{{ item.text }}</GlowingButton>
 				</RouterLink>

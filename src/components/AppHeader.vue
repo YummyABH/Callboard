@@ -4,7 +4,6 @@ import MenuNavigation from '@/components/MenuNavigation.vue'
 import Search from '@/components/ui/icons/Search.vue'
 import ButtonBurger from '@/components/ButtonBurger.vue'
 import { ref } from 'vue';
-
 const isOpen = ref(false)
 </script>
 

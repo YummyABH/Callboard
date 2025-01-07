@@ -7,8 +7,6 @@ function handleMouseMove() {
 	const btn = itemRefs.value
 	const x = event.clientX - btn.getBoundingClientRect().x
 	const y = event.clientY - btn.getBoundingClientRect().y
-	console.log(y);
-	//console.log(btn.getBoundingClientRect().x);
 	if (!btn) return
 
 	btn.style.setProperty('--x', `${x}px`)
