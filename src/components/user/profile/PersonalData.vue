@@ -7,8 +7,8 @@ const email = ref('')
 const password = ref('')
 const confirmPassword = ref('')
 const phoneNumber = ref()
-const telegram = ref(null)
-const whatsapp = ref(null)
+//const telegram = ref(null)
+//const whatsapp = ref(null)
 </script>
 
 <template>
