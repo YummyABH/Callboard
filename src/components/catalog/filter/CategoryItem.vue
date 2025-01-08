@@ -21,18 +21,15 @@ function labelNamed(category, subcategory, subcategoryName) {
   const labelList = useFiltersProductsStore().labelList
 
   if (category === params.categoriesId && labelList.category === null) {
-    console.log(category, params.categoriesId, subcategory, params.subcategoryId)
     labelList.category = props.category
   } else if (subcategory === params.subcategoryId && labelList.subcategory === null) {
     console.log(props.category, subcategoryName)
-
     labelList.subcategory = subcategoryName
   }
 }
 
 onMounted(() => {
   refsArray.value.forEach((el, index) => {
-    console.log('вызвалась')
     labelNamed(
       props.subcategoryPath,
       props.subcategory[index].path,
@@ -72,31 +69,21 @@ async function APIFilter(category, subcategory, subcategoryName) {
 </script>
 
 <template>
-  <div
-    @click="isOpen = !isOpen"
-    :class="[subcategory.length !== 0 ? 'cursor-pointer' : '']"
-    class="hover:bg-gray-900 active:bg-gray-901 duration-200 w-full flex self-center text-white bg-gray-500 font-semibold text-base px-4 py-3"
-  >
+  <div @click="isOpen = !isOpen" :class="[subcategory.length !== 0 ? 'cursor-pointer' : '']"
+    class="hover:bg-gray-900 active:bg-gray-901 duration-200 w-full flex self-center text-white bg-gray-500 font-semibold text-base px-4 py-3">
     <li class="select-none flex gap-x-3">
-      <span
-        :class="[stateStyle.arrow, subcategory.length === 0 ? 'hidden' : 'inline-block']"
-        class="duration-300 flex items-center"
-        >></span
-      >
+      <span :class="[stateStyle.arrow, subcategory.length === 0 ? 'hidden' : 'inline-block']"
+        class="duration-300 flex items-center">></span>
       {{ category }}
     </li>
   </div>
   <Transition>
     <ul v-show="isOpen" v-if="subcategory" class="cursor-pointer">
-      <li
-        v-for="(item, index) in subcategory"
+      <li v-for="(item, index) in subcategory"
         @click="APIFilter(props.subcategoryPath, item.path, item.subcategoryName)"
         @load="labelNamed(props.subcategoryPath, item.path, item.subcategoryName)"
-        :ref="(el) => (refsArray[index] = el)"
-        :class="[stateStyle.border]"
-        :key="item"
-        class="border-t-[1px] w-full flex self-center text-white bg-gray-800 font-semibold text-base px-4 py-3 hover:bg-gray-700 active:bg-gray-400 duration-300"
-      >
+        :ref="(el) => (refsArray[index] = el)" :class="[stateStyle.border]" :key="item"
+        class="border-t-[1px] w-full flex self-center text-white bg-gray-800 font-semibold text-base px-4 py-3 hover:bg-gray-700 active:bg-gray-400 duration-300">
         {{ item.subcategoryName }}
       </li>
     </ul>

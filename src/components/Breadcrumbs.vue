@@ -16,7 +16,6 @@ const labelArray = ref([])
 const generateBreadcrumbs = () => {
   const pathArray = route.path.split('/').filter((path) => path) // Получаем массив путей
   for (const item of router.options.routes) {
-    console.log(item.meta.noBreadcrumbs);
     for (const path of pathArray) {
       if (path === item.name) {
         labelArray.value.push(item.label)
@@ -27,10 +26,8 @@ const generateBreadcrumbs = () => {
   if (pathArray.length === 2) {
     labelArray.value[1] = router.options.routes[1].children[0].props().label
   } else if (pathArray.length >= 3) {
-    console.log('asdasdasd', router.options.routes[1]);
-
-    labelArray.value[1] = router.options.routes[4].children[0].props().label
-    labelArray.value[2] = router.options.routes[4].children[0].children[0].props().label
+    labelArray.value[1] = router.options.routes[1].children[0].props().label
+    labelArray.value[2] = router.options.routes[1].children[0].children[0].props().label
   }
 
   items.value = pathArray.map((path, index) => {

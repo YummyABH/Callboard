@@ -8,6 +8,7 @@ export const useFiltersProductsStore = defineStore('filter', () => {
   const router = useRouter()
   const data = ref([])
   const sortArg = ref('default')
+  const { create } = adAPIFilters()
 
   const filterParams = reactive({
     adName: route?.query?.adName,
@@ -19,8 +20,6 @@ export const useFiltersProductsStore = defineStore('filter', () => {
   })
 
   const totalItems = ref()
-
-  const isLoading = ref(false)
 
   const totalPages = computed(() => Math.ceil(totalItems.value / filterParams.page))
 
@@ -38,16 +37,22 @@ export const useFiltersProductsStore = defineStore('filter', () => {
     subcategory: null
   })
 
-  async function requestAd() {
-    try {
-      const response = await adAPIFilters.create()
-      totalItems.value = response.total
-      data.value = response.ads
-
-      sortData(sortArg.value)
-    } catch (error) {
-      console.log(error)
+  const urlCreate = computed(() => {
+    let pathStr = ''
+    if (Object.keys(filteredCategories.value).length === 1) {
+      pathStr = `/${filteredCategories.value.categoriesId}`
+    } else if (Object.keys(filteredCategories.value).length === 2) {
+      pathStr = `/${filteredCategories.value.categoriesId}/${filteredCategories.value.subcategoryId}`
     }
+    return pathStr
+  })
+
+  async function requestAd() {
+    const response = await create(urlCreate.value)
+    totalItems.value = response.total
+    data.value = response.ads
+
+    sortData(sortArg.value)
   }
 
   function sortData(sortArg) {
@@ -113,6 +118,7 @@ export const useFiltersProductsStore = defineStore('filter', () => {
     labelList,
     totalPages,
     totalItems,
+    urlCreate,
     requestAd,
     sortData
   }

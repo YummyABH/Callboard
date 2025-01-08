@@ -15,24 +15,6 @@ const router = createRouter({
       component: HomePage,
       meta: { noBreadcrumbs: true }
     },
-    {
-      path: '/login',
-      name: 'login',
-      component: AuthPage,
-      meta: { noBreadcrumbs: true, noHeader: true, noFooter: true, guestOnly: true } // Только для гостей
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: AuthPage,
-      meta: { noBreadcrumbs: true, noHeader: true, noFooter: true, guestOnly: true } // Только для гостей
-    },
-    {
-      path: '/forgot-password',
-      name: 'forgot-password',
-      component: ForgotPasswordPage,
-      meta: { noBreadcrumbs: true, noHeader: true, noFooter: true, guestOnly: true }
-    },
     //{
     //  path: '/profile',
     //  name: 'profile',
@@ -69,6 +51,24 @@ const router = createRouter({
           ]
         }
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: AuthPage,
+      meta: { noBreadcrumbs: true, noHeader: true, noFooter: true, guestOnly: true } // Только для гостей
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: AuthPage,
+      meta: { noBreadcrumbs: true, noHeader: true, noFooter: true, guestOnly: true } // Только для гостей
+    },
+    {
+      path: '/forgot-password',
+      name: 'forgot-password',
+      component: ForgotPasswordPage,
+      meta: { noBreadcrumbs: true, noHeader: true, noFooter: true, guestOnly: true }
     },
     {
       path: '/user',

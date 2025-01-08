@@ -10,14 +10,13 @@ import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
 
 const { data } = storeToRefs(useFiltersProductsStore())
 const totalItems = ref(useFiltersProductsStore().totalItems)
+const { create } = adAPIFilters()
+
 onMounted(async () => {
-  try {
-    const response = await adAPIFilters.create()
-    totalItems.value = response.total
-    data.value = response.ads
-  } catch (error) {
-    console.log(error)
-  }
+  const urlCreate = useFiltersProductsStore().urlCreate
+  const response = await create(urlCreate)
+  totalItems.value = response.total
+  data.value = response.ads
 })
 const isOpen = defineModel('open')
 </script>
