@@ -80,6 +80,12 @@ export const useFiltersProductsStore = defineStore('filter', () => {
       if (newPathArray.length < oldPathArray.length) {
         APIFilter()
       }
+
+      // if (route.path !== route.matched[0].path) {
+      //   console.log('отработало', route.path, route.matched[0].path)
+      //   filterParams.regionId = null
+      //   APIFilter()
+      // }
     }
   )
 

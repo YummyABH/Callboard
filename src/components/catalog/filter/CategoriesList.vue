@@ -10,11 +10,7 @@ const { create } = useCategoriesAPI()
 
 const data = ref()
 onMounted(async () => {
-  try {
-    data.value = await create()
-  } catch (error) {
-    console.log(error)
-  }
+  data.value = await create()
 })
 
 async function APIFilter() {
