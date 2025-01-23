@@ -31,7 +31,7 @@ function APIFilterName() {
     />
     <button
       @click.prevent="APIFilterName()"
-      class="duration-200 hover:bg-gray-800 active:bg-gray-900 flex text-xl max-md:px-6 px-10 bg-gray-700 items-center"
+      class="cursor-pointer duration-200 hover:bg-gray-800 active:bg-gray-900 flex text-xl max-md:px-6 px-10 bg-gray-700 items-center"
     >
       Найти
     </button>

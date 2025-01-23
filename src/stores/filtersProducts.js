@@ -45,7 +45,6 @@ export const useFiltersProductsStore = defineStore('filter', () => {
   const urlCreate = computed(() => {
     let pathStr = ''
     if (Object.keys(filteredCategories.value).length === 1) {
-      console.log('оно', Object.keys(filteredCategories.value).length);
       pathStr = `/${filteredCategories.value.categoriesId}`
     } else if (Object.keys(filteredCategories.value).length === 2) {
       pathStr = `/${filteredCategories.value.categoriesId}/${filteredCategories.value.subcategoryId}`
@@ -83,7 +82,6 @@ export const useFiltersProductsStore = defineStore('filter', () => {
   })
 
   const filteredCategories = computed(() => {
-    console.log('сработало');
     return Object.fromEntries(
       Object.entries(filterUrl).filter(([, value]) => value != null && value != undefined)
     )

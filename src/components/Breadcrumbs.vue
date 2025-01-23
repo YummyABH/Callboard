@@ -12,7 +12,7 @@ const labelList = useFiltersProductsStore().labelList
 const items = ref([])
 const labelArray = ref([])
 
-const paramsClear =  useFiltersProductsStore().APIFilter
+const paramsClear = useFiltersProductsStore().APIFilter
 
 // Функция для генерации хлебных крошек на основе текущего маршрута
 const generateBreadcrumbs = () => {
@@ -51,6 +51,7 @@ watch(labelList, () => {
 watch(
   () => route.path,
   () => {
+    paramsClear()
     generateBreadcrumbs()
   }
 )
@@ -65,7 +66,7 @@ watch(
     </li>
     <li v-for="(item, index) in items" :key="index" 
       class="relative before:absolute before:content-['>'] before:text-green-300 before:-left-4 before:-top-px">
-      <RouterLink class="hover:bg-inherit hover:text-green-300 active:text-green-400 duration-200" :to="item.to" @click="paramsClear">
+      <RouterLink class="hover:bg-inherit hover:text-green-300 active:text-green-400 duration-200" :to="item.to" >
         {{ item.label }}
       </RouterLink>
     </li>
