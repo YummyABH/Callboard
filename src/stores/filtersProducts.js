@@ -23,7 +23,7 @@ export const useFiltersProductsStore = defineStore('filter', () => {
 
   const totalPages = computed(() => Math.ceil(totalItems.value / filterParams.limit) === 0 ? 1 : Math.ceil(totalItems.value / filterParams.limit))
 
-  watch(data, () => {
+  watch(data, () => {         
     sortData(sortArg.value)
   })
 

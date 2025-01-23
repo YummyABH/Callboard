@@ -1,13 +1,17 @@
 <script setup>
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
 const currentPage = useFiltersProductsStore().filterParams
-const totalPages = useFiltersProductsStore().totalPages
+const totalPages = ref(useFiltersProductsStore().totalPages)
 const paramsActive = useFiltersProductsStore().filteredParams
+
+watch(() => useFiltersProductsStore().totalPages, () => {
+  totalPages.value = useFiltersProductsStore().totalPages
+})
 
 // Переход на предыдущую страницу
 const prevPage = () => {
@@ -21,7 +25,7 @@ const prevPage = () => {
 }
 
 const nextPage = () => {
-  if (currentPage.page < totalPages) {
+  if (currentPage.page < totalPages.value) {
     currentPage.page++
     useFiltersProductsStore().requestAd() // Загрузка данных для следующей страницы
     router.push({
@@ -31,7 +35,7 @@ const nextPage = () => {
 }
 
 const goToPage = (page) => {
-  if (page >= 1 && page <= totalPages) {
+  if (page >= 1 && page <= totalPages.value) {
     currentPage.page = page
     useFiltersProductsStore().requestAd() // Загрузка данных для указанной страницы
     router.push({
@@ -45,11 +49,11 @@ const visiblePages = computed(() => {
   const pages = []
   const maxVisible = 5 // Количество отображаемых кнопок
   const start = Math.max(1, currentPage.page - Math.floor(maxVisible / 2))
-  const end = Math.min(totalPages, start + maxVisible - 1)
+  const end = Math.min(totalPages.value, start + maxVisible - 1)
   
   // Добавляем первую страницу, если нужно
-  // if (start > 1) pages.push(1)
-  // if (start > 2) pages.push('...') // Указываем пропуск страниц
+  if (start > 1) pages.push(1)
+  if (start > 2) pages.push('...') // Указываем пропуск страниц
 
   // Основной диапазон
   for (let i = start; i <= end; i++) {
@@ -57,8 +61,8 @@ const visiblePages = computed(() => {
   }
 
   // Добавляем последнюю страницу, если нужно
-  if (end < totalPages - 1) pages.push('...')
-  if (end < totalPages) pages.push(totalPages)
+  if (end < totalPages.value - 1) pages.push('...')
+  if (end < totalPages.value) pages.push(totalPages.value)
 
   return pages
 })
@@ -73,7 +77,7 @@ const visiblePages = computed(() => {
       @click="page !== '...' && goToPage(page)"
       :disabled="page === '...'"
       :class="{
-        'text-green-400 font-bold cursor-pointer active:text-green-200': currentPage.page === page,
+        'text-green-400 font-bold cursor-pointer': currentPage.page === page,
         '': currentPage.page !== page,
         'cursor-not-allowed': page === '...'
       }"
