@@ -67,7 +67,7 @@ watch(
     <li v-for="(item, index) in items" :key="index" 
       class="relative before:absolute before:content-['>'] before:text-green-300 before:-left-4 before:-top-px">
       <RouterLink class="hover:bg-inherit hover:text-green-300 active:text-green-400 duration-200" :to="item.to" >
-        {{ item.label }}
+         <span class="hover:text-green-300 duration-200 active:text-green-400">{{item.label }}</span> 
       </RouterLink>
     </li>
   </ol>

@@ -4,7 +4,7 @@ import PersonalData from "@/components/user/profile/PersonalData.vue";
 </script>
 
 <template>
-    <div class="flex flex-col gap-y-12">
+    <div class="flex flex-col gap-y-8">
         <BasePhoto />
         <PersonalData />
     </div>
