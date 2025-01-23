@@ -12,7 +12,6 @@ import { storeToRefs } from 'pinia'
 
 const {data} = storeToRefs(useFiltersProductsStore())
 const {totalItems} = storeToRefs(useFiltersProductsStore())
-
 const { create } = adAPIFilters()
 
 onMounted(async () => {
