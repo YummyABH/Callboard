@@ -37,7 +37,9 @@ const styleContainer = computed(() => {
 <template>
     <div class="lining-nums flex flex-col gap-y-3">
         <div class="">Выставленно объявлений: {{ totalAds }}</div>
-        <GlowingButton class="w-max">Добавить объявление</GlowingButton>
+        <RouterLink to="/ad/create">
+            <GlowingButton class="w-max">Добавить объявление</GlowingButton>
+        </RouterLink>
         <div :class="styleContainer" class="flex flex-col gap-4 w-full mt-2 pt-3  border-t border-px border-gray-600 max-[640px]:grid max-[640px]:grid-cols-2">
             <template v-if="myAds[0]">
                 <CardUserProduct v-for="(item, index) in myAds" :key="index" v-model:isOpen="modelOpen" :price="item.price" :title="item.adName"
