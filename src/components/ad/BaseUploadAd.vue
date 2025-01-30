@@ -1,6 +1,7 @@
 <script setup>
 import UploadImg from '@/components/ad/uploadAd/UploadImg.vue'
 import UploadFomMap from './uploadAd/UploadFomMap.vue'
+import UploadFeedback from './uploadAd/UploadFeedback.vue'
 import { vMaska } from 'maska/vue'
 import { onMounted, reactive, ref, watch } from 'vue'
 import { regionsAPI } from '@/API/regionsRequest.js'
@@ -12,6 +13,9 @@ const { regionList } = regionsAPI()
 const dataRegion = ref()
 const dataCategory = ref()
 const dataSubcategory = ref([])
+const openCategory = ref(false)
+const openSubcategory = ref(false)
+const openCities = ref(false)
 
 onMounted(async () => {
   dataRegion.value = await regionList()
@@ -26,7 +30,11 @@ const inputValues = reactive({
   description: null,
   photo: [null, null, null, null],
   city: null,
-  feedback: null
+  feedback: {
+    whatsapp: null,
+    telegram: null,
+    telephone: null,
+  }
 })
 
 const arrayInputTemplate = reactive({
@@ -69,6 +77,8 @@ watch(
       </label>
       <div class="relative max-md:col-span-full max-lg:h-8 col-span-2 max-xl:col-span-3">
         <select
+          @click="openCategory = !openCategory"
+          @blur="openCategory = false"
           :ref="formRefs.category"
           v-model="inputValues.category"
           name="category"
@@ -76,27 +86,33 @@ watch(
           id="category-select"
         >
         
-          <option v-for="item in dataCategory" :value="item.id" :key="item.id">
+          <option @click="openCategory = false" v-for="item in dataCategory" :value="item.id" :key="item.id">
             {{ item.categoryName }}
           </option>
         </select>
-        <div class="pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 border-x-4 border-t-4 border-x-transparent border-t-white"></div>
+        <div :class="openCategory ? 'rotate-180' : 'rotate-0'" class="duration-300 transform pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 border-x-4 border-t-4 border-x-transparent border-t-white"></div>
       </div>
 
       <label for="subcategory" class="max-md:hidden max-sm:col-span-2 row-start-2 max-xl:text-sm col-span-1 text-lg">
         {{ arrayInputTemplate.subcategory }}: <span class="text-red-400 text-xl">*</span>
       </label>
-      <select
-        :ref="formRefs.subcategory"
-        v-model="inputValues.subcategory"
-        name="subcategory"
-        class="max-md:col-span-full max-lg:h-8 row-start-2 col-span-2 max-h-9.5 max-xl:col-span-3 border border-px border-gray-400 focus:border-white cursor-pointer overflow-hidden z-10 font-normal pr-9 max-md:pr-0 text-sm appearance-none bg-gray-800 focus:outline-hidden focus:ring-0 max-lg:py-0 px-2 py-2 m-0"
-        id="sort-select"
-      >
-        <option v-for="item in dataSubcategory.subcategories" :value="item.id" :key="item.id">
-          {{ item.subcategoryName }}
-        </option>
-      </select>
+      <div class="relative row-start-2 col-span-2 max-md:col-span-full max-xl:col-span-3 max-lg:h-8 max-h-9.5">
+        <select
+          @click="openSubcategory = !openSubcategory"
+          @blur="openSubcategory = false"
+          :ref="formRefs.subcategory"
+          v-model="inputValues.subcategory"
+          name="subcategory"
+          class="w-full max-lg:h-8 max-h-9.5 border border-px border-gray-400 focus:border-white cursor-pointer overflow-hidden z-10 font-normal pr-9 max-md:pr-0 text-sm appearance-none bg-gray-800 focus:outline-hidden focus:ring-0 max-lg:py-0 px-2 py-2 m-0"
+          id="sort-select"
+        >
+          <option @click="openSubcategory = false" v-for="item in dataSubcategory.subcategories" :value="item.id" :key="item.id">
+            {{ item.subcategoryName }}
+          </option>
+        </select>
+        <div :class="openSubcategory ? 'rotate-180' : 'rotate-0'" class="duration-300 transform pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 border-x-4 border-t-4 border-x-transparent border-t-white"></div>
+
+      </div>
 
       <label for="name" class="max-md:hidden max-xl:text-sm max-sm:col-span-2 row-start-3 col-span-1 text-lg text-left">
         {{ arrayInputTemplate.name }}: <span class="text-red-400 text-xl">*</span>
@@ -116,7 +132,7 @@ watch(
       <label for="price" class="max-md:hidden max-xl:text-sm max-sm:col-span-2 row-start-4 col-span-1 text-lg text-left">
         {{ arrayInputTemplate.price }}: <span class="text-red-400 text-xl">*</span>
       </label>
-      <div class="max-md:col-span-full max-lg:h-8 flex gap-2 row-start-4 col-span-2 max-xl:col-span-3">
+      <div class="relative max-md:col-span-full max-lg:h-8 flex gap-2 row-start-4 col-span-2 max-xl:col-span-3">
         <input
           :ref="formRefs.price"
           v-model="inputValues.price"
@@ -128,7 +144,7 @@ watch(
           placeholder="Цена"
           id="1"
         />
-        <span class="flex items-center">₽</span>
+        <span class="absolute top-1/2 right-1.5 transform -translate-1/2 flex items-center">₽</span>
       </div>
 
       <label for="description" class="max-md:hidden max-xl:text-sm max-sm:col-span-2 row-start-5 col-span-1 text-lg text-left">
@@ -145,13 +161,10 @@ watch(
           placeholder="Описание"
         >
         </textarea>
-        <div class="flex justify-between">
-          <span class="text-xs">До 3000 символов</span>
           <span class="text-xs"
             >{{ inputValues?.description?.length ? inputValues.description.length : '0' }} /
             3000</span
           >
-        </div>
       </div>
 
       <label :ref="formRefs.photo" for="photo" class="max-md:hidden max-sm:hidden max-xl:text-sm max-sm:col-span-2 row-start-6 col-span-1 text-lg text-left">
@@ -162,33 +175,28 @@ watch(
       <label for="subcategory" class="max-md:hidden max-xl:text-sm max-sm:col-span-2 row-start-7 col-span-1 text-lg">
         {{ arrayInputTemplate.city }}: <span class="text-red-400 text-xl">*</span>
       </label>
-      <select
-        :ref="formRefs.city"
-        v-model="inputValues.city"
-        name="subcategory"
-        class="max-md:col-span-full col-span-2 max-lg:h-8 max-xl:col-span-3 border border-px border-gray-400 focus:border-white cursor-pointer overflow-hidden z-10 font-normal pr-9 max-md:pr-0 text-sm appearance-none bg-gray-800 focus:outline-hidden focus:ring-0 max-lg:py-1 px-2 py-2 m-0"
-        id="sort-select"
-      >
-        <option v-for="item in dataRegion" :value="item.id" :key="item.id">
-          {{ item.regionName }}
-        </option>
-      </select>
+      <div class="relative max-md:col-span-full col-span-2 max-xl:col-span-3">
+        <select
+          @click="openCities = !openCities"
+          @blur="openCities = false"
+          :ref="formRefs.city"
+          v-model="inputValues.city"
+          name="subcategory"
+          class="w-full max-lg:h-8 border border-px border-gray-400 focus:border-white cursor-pointer overflow-hidden z-10 font-normal pr-9 max-md:pr-0 text-sm appearance-none bg-gray-800 focus:outline-hidden focus:ring-0 max-lg:py-1 px-2 py-2 m-0"
+          id="sort-select"
+        >
+          <option @click="openCities = false" v-for="item in dataRegion" :value="item.id" :key="item.id">
+            {{ item.regionName }}
+          </option>
+        </select>
+        <div :class="openCities ? 'rotate-180' : 'rotate-0'" class="duration-300 transform pointer-events-none absolute top-1/2 right-3 -translate-y-1/2 border-x-4 border-t-4 border-x-transparent border-t-white"></div>
+      </div>
 
       <label for="price" class="max-md:hidden max-xl:text-sm max-sm:col-span-2 row-start-8 col-span-1 text-lg text-left">
         {{ arrayInputTemplate.feedback }}: <span class="text-red-400 text-xl">*</span>
       </label>
-      <div class="max-md:col-span-full flex gap-2 row-start-8 col-span-2 max-xl:col-span-3">
-        <input
-          :ref="formRefs.feedback"
-          v-model="inputValues.feedback"
-          type="text"
-          v-maska="'###################'"
-          autocomplete="off"
-          name="price"
-          class="rounded-sm border border-px border-gray-400 focus:border-white lining-nums box-border duration-100 bg-gray-800 max-lg:h-8 outline-hidden max-sm:py-4 max-lg:py-0 px-2 w-full"
-          placeholder=""
-          id="1"
-        />
+      <div class="max-md:col-span-full overflow-hidden flex gap-2 row-start-8 col-span-2 flex flex-wrap max-xl:col-span-3">
+        <UploadFeedback v-model:feedbackRefs="formRefs.feedback" v-model:feedbackTelegram="inputValues.telegram" v-model:feedbackTelephon="inputValues.telephone" v-model:feedbackWhatsapp="inputValues.whatsapp"/>
       </div>
     </form>
     <div class="sticky max-lg:hidden top-34 max-w-3/9 self-start">
