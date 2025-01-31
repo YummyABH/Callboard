@@ -12,13 +12,21 @@ const scrollToField = (field) => {
   formRefs.value[field].value.focus()
 }
 
-const normalizedinputValues = (key) => {
+const normalizedinputValues = (key) => {    
     let isFlag
     if (Array.isArray(inputValues?.value[key])) {
         isFlag = inputValues?.value[key].some(value => Boolean(value) === true);
+    } else if (typeof inputValues?.value[key] === 'object' && !Array.isArray(inputValues?.value[key])) {
+        let keyFeedback = false
+        for (keyFeedback in inputValues.value[key]) {
+            if (inputValues.value[key][keyFeedback]) {
+                return keyFeedback = true
+            }
+        }
     } else {
         isFlag = inputValues.value[key]
     }
+    // console.log(isFlag);
     return isFlag
 }
 </script>

@@ -33,7 +33,7 @@ const stateFocusInput = reactive({
             autocomplete="off"
             name="whatsapp"
             class="min-h-9.5 pl-10 w-full rounded-sm border border-px border-gray-400 focus:border-white lining-nums box-border duration-100 bg-gray-800 max-lg:h-8 outline-hidden max-sm:py-4 max-lg:py-0 px-2 w-full"
-            placeholder=""
+            placeholder="+ 7 (###) ###-##-##"
             id="1"
           />
         </div>
@@ -48,11 +48,12 @@ const stateFocusInput = reactive({
             @focus="stateFocusInput.focusTelegram = true"
             @blur="stateFocusInput.focusTelegram = false"
             type="text"
-            v-maska="'+ 7 (###) ###-##-##'"
+            v-maska="'https://t.me/**********************'"
             autocomplete="off"
+            maxlength="35"
             name="whatsapp"
             class="min-h-9.5 pl-10 w-full rounded-sm border border-px border-gray-400 focus:border-white lining-nums box-border duration-100 bg-gray-800 max-lg:h-8 outline-hidden max-sm:py-4 max-lg:py-0 px-2 w-full"
-            placeholder=""
+            placeholder="https://t.me/_______"
             id="1"
           />
         </div>
@@ -71,7 +72,7 @@ const stateFocusInput = reactive({
             autocomplete="off"
             name="whatsapp"
             class="min-h-9.5 pl-10 w-full rounded-sm border border-px border-gray-400 focus:border-white lining-nums box-border duration-100 bg-gray-800 max-lg:h-8 outline-hidden max-sm:py-4 max-lg:py-0 px-2 w-full"
-            placeholder=""
+            placeholder="+ 7 (###) ###-##-##"
             id="1"
           />
         </div>

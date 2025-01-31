@@ -196,9 +196,13 @@ watch(
         {{ arrayInputTemplate.feedback }}: <span class="text-red-400 text-xl">*</span>
       </label>
       <div class="max-md:col-span-full overflow-hidden flex gap-2 row-start-8 col-span-2 flex flex-wrap max-xl:col-span-3">
-        <UploadFeedback v-model:feedbackRefs="formRefs.feedback" v-model:feedbackTelegram="inputValues.telegram" v-model:feedbackTelephon="inputValues.telephone" v-model:feedbackWhatsapp="inputValues.whatsapp"/>
+        <UploadFeedback v-model:feedbackRefs="formRefs.feedback" v-model:feedbackTelegram="inputValues.feedback.telegram" v-model:feedbackTelephon="inputValues.feedback.telephone" v-model:feedbackWhatsapp="inputValues.feedback.whatsapp"/>
       </div>
+      <button @click.prevent="" class="cursor-pointer max-md:col-span-3 max-md:col-start-2 row-start-9 col-span-2 w-max justify-self-center col-start-2 px-2 py-2 rounded-md duration-200 bg-green-500 hover:bg-green-400 active:bg-green-300">
+        Опубликовать объявление
+      </button>
     </form>
+
     <div class="sticky max-lg:hidden top-34 max-w-3/9 self-start">
       <UploadFomMap
         v-model:formRefs="formRefs"
