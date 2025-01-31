@@ -5,6 +5,7 @@ import AuthPage from '@/page/AuthPage.vue'
 import BaseProfile from '@/components/user/profile/BaseProfile.vue'
 import ForgotPasswordPage from '@/components/auth/ForgotPasswordForm.vue'
 import BaseMyAds from '@/components/user/myAds/BaseMyAds.vue'
+import ViewAdPage from '@/page/ViewAdPage.vue'
 // import BaseFavorites from '@/components/user/favorites/BaseFavorites.vue'
 import UploadingAdPage from '@/page/UploadingAdPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -104,6 +105,12 @@ const router = createRouter({
       path: '/ad/create',
       name: 'uploadingAd',
       component: UploadingAdPage,
+      meta: { noBreadcrumbs: true }
+    },
+    {
+      path: '/ad/:category/:id/:slug',
+      name: 'ViewAdPage',
+      component: ViewAdPage,
       meta: { noBreadcrumbs: true }
     }
   ]

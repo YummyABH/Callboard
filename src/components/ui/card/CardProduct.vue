@@ -2,6 +2,7 @@
 import WhatsappSmall from '@/components/ui/icons/WhatsappSmall.vue'
 import TelegramSmall from '@/components/ui/icons/TelegramSmall.vue'
 import PhoneSmall from '@/components/ui/icons/PhoneSmall.vue'
+import slugify from "slugify"
 // import FavoriteSmall from '@/components/ui/icons/FavoriteSmall.vue'
 import { computed, ref } from 'vue'
 
@@ -15,9 +16,12 @@ const props = defineProps({
   surname: String,
   whatsapp: String,
   telegram: String,
-  phone: String
+  phone: String,
+  category: String,
+  id: Number
 })
 
+const slugTitle = ref(slugify(props.title, { lower: true, strict: true }));
 const surname = computed(() => props.surname.slice(0, 1) + '.')
 
 const formattedPrice = computed(() => props.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
@@ -54,9 +58,9 @@ const img = ref()
         <TelegramSmall v-if="props.telegram" :telegram="telegram" class="max-[374px]:hidden" />
         <PhoneSmall v-if="props.phone" :phone="phone" class="max-[374px]:hidden" />
         <!-- <FavoriteSmall class="max-[374px]:hidden" /> -->
-        <div class="hover:bg-gray-700 active:bg-gray-800 cursor-pointer duration-200 max-md:py-1 max-md:px-2 text-center col-span-4 py-2 px-4 text-white rounded-lg inline-block bg-gray-500">
+        <RouterLink :to="'/ad/electronics/' + id + '/' + slugTitle" class="hover:bg-gray-700 active:bg-gray-800 cursor-pointer duration-200 max-md:py-1 max-md:px-2 text-center col-span-4 py-2 px-4 text-white rounded-lg inline-block bg-gray-500">
           Подробнее
-        </div>
+        </RouterLink>
       </div>
     </div>
   </div>
