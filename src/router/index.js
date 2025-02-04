@@ -8,6 +8,7 @@ import BaseMyAds from '@/components/user/myAds/BaseMyAds.vue'
 import ViewAdPage from '@/page/ViewAdPage.vue'
 // import BaseFavorites from '@/components/user/favorites/BaseFavorites.vue'
 import UploadingAdPage from '@/page/UploadingAdPage.vue'
+import UserEditAd from '@/page/UserEditAd.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
 
@@ -111,6 +112,12 @@ const router = createRouter({
       path: '/ad/:category/:id/:slug',
       name: 'ViewAdPage',
       component: ViewAdPage,
+      meta: { noBreadcrumbs: true }
+    },
+    {
+      path: '/user/my-ads/:id/edit',
+      name: 'UserEditAd',
+      component: UserEditAd,
       meta: { noBreadcrumbs: true }
     }
   ]

@@ -42,9 +42,9 @@ const styleContainer = computed(() => {
         </RouterLink>
         <div :class="styleContainer" class="flex flex-col gap-4 w-full mt-2 pt-3  border-t border-px border-gray-600 max-[640px]:grid max-[640px]:grid-cols-2">
             <template v-if="myAds[0]">
-                <CardUserProduct v-for="(item, index) in myAds" :key="index" v-model:isOpen="modelOpen" :price="item.price" :title="item.adName"
+                <CardUserProduct v-for="(item, index) in myAds" :key="index" v-model:isOpen="modelOpen" :id="item.adId" :price="item.price" :title="item.adName"
             :subtitle="item.description" :daysRemaining="item.daysRemaining" :photo-url="item.photos" />
-            <CardUserProductMini v-for="(item, index) in myAds" class="sm:hidden" :key="index" v-model:isOpen="modelOpen" :price="item.price" :title="item.adName"
+            <CardUserProductMini v-for="(item, index) in myAds" class="sm:hidden" :key="index" :id="item.adId" v-model:isOpen="modelOpen" :price="item.price" :title="item.adName"
             :subtitle="item.description" :daysRemaining="item.daysRemaining" :photo-url="item.photos" />
             </template>
             <div v-else class="max-sm:col-span-full perspective-distant relative max-md:mt-6 mt-10 flex flex-col items-center">

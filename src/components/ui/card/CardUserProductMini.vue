@@ -8,7 +8,8 @@ const props = defineProps({
   photoUrl: Object,
   title: String,
   daysRemaining: Number,
-  price: Number
+  price: Number,
+  id: Number
 })
 
 const isOpen = defineModel('isOpen')
@@ -34,7 +35,9 @@ const formattedPrice = computed(() => props.price.toString().replace(/\B(?=(\d{3
           Осталось: <span class="text-white">{{ props.daysRemaining + ' дней'}}</span>
         </div>
         <IconDelete @click="isOpen = !isOpen" title="Удалить"  />
-        <IconPencil title="Редактировать"  />
+        <RouterLink :to="'/user/my-ads/' + id + '/edit'">
+          <IconPencil title="Редактировать"  />
+        </RouterLink>
         <IconEye title="Просмотреть объявление" />
         <div class="mt-2 hover:bg-gray-700 active:bg-gray-800 cursor-pointer duration-200 max-md:py-1 max-md:px-2 text-center col-span-4 py-2 px-4 text-white rounded-lg inline-block bg-gray-500">
           Продлить

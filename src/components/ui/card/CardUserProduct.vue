@@ -10,6 +10,7 @@ const props = defineProps({
   subtitle: String,
   daysRemaining: Number,
   photoUrl: Array,
+  id: Number
 })
 
 const formattedPrice = computed(() => props.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
@@ -44,7 +45,9 @@ const img = ref()
           Осталось: <span class="text-white max-lg:text-xs">{{ props.daysRemaining + ' дней'}}</span>
         </div>
         <IconDelete @click="isOpen = !isOpen" title="Удалить" class="max-[374px]:hidden" />
-        <IconPencil title="Редактировать" class="max-[374px]:hidden" />
+        <RouterLink :to="'/user/my-ads/' + id + '/edit'">
+          <IconPencil title="Редактировать" class="max-[374px]:hidden" />
+        </RouterLink>
         <IconEye title="Просмотреть объявление" class="max-[374px]:hidden" />
         <div class="hover:bg-gray-700 active:bg-gray-800 cursor-pointer duration-200 max-md:py-1 max-md:px-2 text-center col-span-4 py-2 px-4 text-white rounded-lg inline-block bg-gray-500">
           Продлить
