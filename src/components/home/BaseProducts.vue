@@ -23,7 +23,8 @@ onMounted(() => {
         <ContentContainer>
             <div class="text-2xl text-center mb-5 max-lg:text-base max-lg:mb-2 max-[540px]:text-2xl">Последние объявления</div>
             <div class="max-sm:grid-cols-3 max-md:grid-cols-4 max-lg:grid-cols-5 grid grid-cols-6 gap-3">
-                <CardProductMini v-for="(item, index) in data" :key="index" :photo-url="item.photos" :price="item.price" :cities="item.region" :name="item.adName"/>
+                <CardProductMini v-for="(item, index) in data" :key="index" :whatsapp="item.whatsapplink" :telegram="item.telegramlink"
+                :phone="item.phonenumber" :title="item.adName" :id="item.adId" :photo-url="item.photos" :price="item.price" :cities="item.region" :name="item.adName"/>
             </div>
         </ContentContainer>
     </div>

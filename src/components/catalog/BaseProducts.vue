@@ -27,7 +27,8 @@ const isOpen = defineModel('open')
         :subtitle="item.description" :region="item.region" :photo-url="item.photos" :name="item.firstName"
         :surname="item.lastName" :whatsapp="item.whatsapplink" :telegram="item.telegramlink"
         :phone="item.phonenumber" :category="item.category" :id="item.adId"/>
-      <CardProductMini v-for="(item, index) in data" class="sm:hidden" :key="index" :photo-url="item.photos" :price="item.price" :cities="item.region" :name="item.adName"/>
+      <CardProductMini v-for="(item, index) in data" class="sm:hidden" :key="index" :whatsapp="item.whatsapplink" :telegram="item.telegramlink"
+      :phone="item.phonenumber" :title="item.adName" :id="item.adId" :photo-url="item.photos" :price="item.price" :cities="item.region" :name="item.adName"/>
     </div>
   </div>
 </template>

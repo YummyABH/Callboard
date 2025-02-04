@@ -4,7 +4,7 @@ import BaseViewAd from '@/components/ad/BaseViewAd.vue';
 </script>
 
 <template>
-    <div class="mt-24 text-white pt-10 max-sm:pt-6 max-md:mt-16">
+    <div class="mt-24 text-white pt-6 max-sm:pt-6 max-md:mt-16">
         <ContentContainer>
             <BaseViewAd/>
         </ContentContainer>
