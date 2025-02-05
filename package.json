@@ -12,11 +12,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@primevue/themes": "^4.2.5",
     "maska": "^3.0.4",
     "masonry-layout": "^4.2.2",
     "ofetch": "^1.4.0",
     "pinia": "^2.2.4",
-    "primevue": "^4.0.7",
+    "primevue": "^4.2.5",
     "slugify": "^1.6.6",
     "swiper": "^11.2.1",
     "vue": "^3.4.29",

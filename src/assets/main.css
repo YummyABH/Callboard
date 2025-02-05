@@ -76,6 +76,6 @@ a,
 
 @media (hover: hover) {
   a:hover {
-    background-color: inherit);
+    background-color: inherit;
   }
 }

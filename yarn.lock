@@ -460,6 +460,13 @@
     "@primeuix/utils" "^0.3.2"
     "@primevue/core" "4.2.5"
 
+"@primevue/themes@^4.2.5":
+  version "4.2.5"
+  resolved "https://registry.npmjs.org/@primevue/themes/-/themes-4.2.5.tgz"
+  integrity sha512-8F7yA36xYIKtNuAuyBdZZEks/bKDwlhH5WjpqGGB0FdwfAEoBYsynQ5sdqcT2Lb/NsajHmS5lc++Ttlvr1g1Lw==
+  dependencies:
+    "@primeuix/styled" "^0.3.2"
+
 "@rollup/pluginutils@^5.1.0":
   version "5.1.1"
   resolved "https://registry.npmjs.org/@rollup/pluginutils/-/pluginutils-5.1.1.tgz"
@@ -2262,7 +2269,7 @@ pretty-format@^29.7.0:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
-primevue@^4.0.7:
+primevue@^4.2.5:
   version "4.2.5"
   resolved "https://registry.npmjs.org/primevue/-/primevue-4.2.5.tgz"
   integrity sha512-7UMOIJvdFz4jQyhC76yhNdSlHtXvVpmE2JSo2ndUTBWjWJOkYyT562rQ4ayO+bMdJLtzBGqgY64I9ZfEvNd7vQ==
