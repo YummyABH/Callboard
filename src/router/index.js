@@ -11,6 +11,7 @@ import UploadingAdPage from '@/page/UploadingAdPage.vue'
 import UserEditAd from '@/page/UserEditAd.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
+// import AboutUs from '@/page/AboutUs.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -119,7 +120,13 @@ const router = createRouter({
       name: 'UserEditAd',
       component: UserEditAd,
       meta: { noBreadcrumbs: true }
-    }
+    },
+    // {
+    //   path: '/about-us',
+    //   name: 'AboutUs',
+    //   component: AboutUs,
+    //   meta: { noBreadcrumbs: true }
+    // }
   ]
 })
 

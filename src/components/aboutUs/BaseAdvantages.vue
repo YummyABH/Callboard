@@ -2,7 +2,6 @@
 import ContentContainer from '@/components/ContentContainer.vue';
 import CardAdvantages from '@/components/ui/card/CardAdvantages.vue'
 import { reactive } from 'vue';
-import { computed } from 'vue';
 
 const styleCard = reactive({
 	left: 'max-sm:justify-self-start max-sm:before:w-0 bg-linear-to-l max-lg:bg-linear-to-r from-black-700  border-r-4 max-lg:border-l-4 max-lg:border-r-0 before:-right-[17%] max-lg:before:-left-[7%] max-lg:justify-self-end',
@@ -13,7 +12,7 @@ const styleCard = reactive({
 <template>
 	<div class="bg-black-300">
 		<ContentContainer>
-			<h2 class="text-5xl max-lg:text-4xl max-sm:text-3xl max-lg:mb-16 text-white mb-28 text-center">
+			<h2 class="text-3xl max-lg:text-4xl max-sm:text-3xl max-lg:mb-16 text-white mb-14 text-center">
 				Причины выбрать Rich
 			</h2>
 			<div

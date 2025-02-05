@@ -2,8 +2,8 @@
 import ButtonDarkMode from './ButtonDarkMode.vue';
 import AuthorizationButton from '@/components/ui/buttons/AuthorizationButton.vue'
 import GlowingButton from '@/components/ui/buttons/GlowingButton.vue'
-import IconCart from '@/components/ui/icons/IconCart.vue'
 import { ref } from 'vue'
+import IconList from './ui/icons/IconList.vue';
 
 const buttons = ref([{ text: 'Каталог', to: '/catalog' }, { text: 'Личный кабинет', to: '/user/profile' }])
 </script>
@@ -21,7 +21,11 @@ const buttons = ref([{ text: 'Каталог', to: '/catalog' }, { text: 'Лич
 				<AuthorizationButton />
 			</li>
 			<li class="max-md:w-full max-md:h-full">
-				<IconCart />
+				<RouterLink to="/user/my-ads">
+					<GlowingButton>
+						<IconList/>
+					</GlowingButton>
+				</RouterLink>
 			</li>
 		</div>
 		<ButtonDarkMode />

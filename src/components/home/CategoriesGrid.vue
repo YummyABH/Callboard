@@ -25,7 +25,7 @@ onMounted(async () => {
 	<div class="bg-black-500 pb-12 pt-2">
 		<ContentContainer>
 			<h2 class="text-2xl max-sm:text-lg text-center mb-6">Категории</h2>
-			<div :class="activeItem !== null ? 'max-sm:grid-cols-2' : 'max-sm:grid-cols-3'" class="mb-5 max-lg:grid-cols-5 max-md:grid-cols-4 grid grid-cols-7 gap-6 ">
+			<div class="max-sm:grid-cols-2 mb-5 max-lg:grid-cols-5 max-md:grid-cols-4 grid grid-cols-7 gap-6 ">
 				<CategoriesItem v-for="(item, index) in data" :index="index" v-model:openListCategories="openListCategories" v-model:active="activeItem" :key="index" :subcategories="item.subcategories" :pathCategory="data[index].path">{{
 					item.categoryName }}
 				</CategoriesItem>

@@ -3,7 +3,6 @@ import ModalImage from '@/components/ui/modal/ModalImage.vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { adAPIFilters } from '@/API/adRequest.js'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import { onMounted, reactive, ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { vMaska } from 'maska/vue'
@@ -33,9 +32,6 @@ const adId = route.params.id
 
 const dataRegion = ref()
 const openCities = ref(false)
-const swiperMain = ref(null) // Основной слайдер
-const swiperThumbs = ref(null) // Вертикальный слайдер
-const activeIndex = ref(0) // Текущий индекс слайда
 const modalImg = ref()
 const modelOpen = ref(false)
 
@@ -47,24 +43,6 @@ watch(modelOpen, () => {
 
 const goBack = () => {
   router.back() // Аналог window.history.back()
-}
-
-const onMainSwiper = (swiper) => {
-  swiperMain.value = swiper
-}
-
-const onThumbsSwiper = (swiper) => {
-  swiperThumbs.value = swiper
-}
-
-// Обновляем индекс обоих слайдеров при смене слайда
-const onSlideChange = (swiper) => {
-  activeIndex.value = swiper.activeIndex
-  if (swiperMain.value && swiperThumbs.value) {
-    swiperMain.value.slideTo(activeIndex.value)
-    swiperThumbs.value.slideTo(activeIndex.value)
-    modalImg.value = dataAd.value.photos[activeIndex.value]
-  }
 }
 
 const { create } = adAPIFilters()

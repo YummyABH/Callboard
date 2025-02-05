@@ -15,7 +15,11 @@ import Telegram from '@/components/ui/icons/Telegram.vue'
 					<h3 class="hover:underline hover:text-gray-400 active:text-white">Вопросы и ответы</h3>
 				</li>
 				<li>
-					<h3 class="hover:underline hover:text-gray-400 active:text-white">О нас</h3>
+					<h3 class="hover:underline hover:text-gray-400 active:text-white">
+					<RouterLink to="/">
+						О нас
+					</RouterLink>	
+					</h3>
 				</li>
 			</ul>
 			<Telegram />

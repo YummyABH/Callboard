@@ -1,16 +1,16 @@
 <script setup>
-import IconHeart from '@/components/ui/icons/IconHeart.vue'
+// import IconHeart from '@/components/ui/icons/IconHeart.vue'
 import IconList from '@/components/ui/icons/IconList.vue'
 import IconUser from '@/components/ui/icons/IconUser.vue'
 </script>
 
 <template>
   <div class="text-xs w-full flex items-center justify-around h-13 bg-black-400">
-    <RouterLink to="/" class="active:text-green-300 duration-200 gap-0.5 flex h-max justify-center flex-col items-center">
+    <!-- <RouterLink to="/" class="active:text-green-300 duration-200 gap-0.5 flex h-max justify-center flex-col items-center">
       <IconHeart />
       <span>Избранное</span>
-    </RouterLink>
-    <RouterLink to="/" class="active:text-green-300 duration-200 gap-0.5 flex h-max justify-center flex-col items-center">
+    </RouterLink> -->
+    <RouterLink to="/user/my-ads" class="active:text-green-300 duration-200 gap-0.5 flex h-max justify-center flex-col items-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
