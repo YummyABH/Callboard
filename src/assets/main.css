@@ -74,8 +74,4 @@ a,
   padding: 3px;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: inherit;
-  }
-}
+

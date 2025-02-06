@@ -13,6 +13,11 @@ watch(() => useFiltersProductsStore().totalPages, () => {
   totalPages.value = useFiltersProductsStore().totalPages
 })
 
+const scrollToPosition = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
 // Переход на предыдущую страницу
 const prevPage = () => {
   if (currentPage.page > 1) {
@@ -70,11 +75,11 @@ const visiblePages = computed(() => {
 
 <template>
   <div class="flex gap-x-3 xl:-translate-x-1/2 justify-self-end items-start max-xl:justify-self-center text-white">
-    <button class="active:text-green-400 hover:text-green-300 cursor-pointer duration-200" @click="prevPage()">назад</button>
+    <button class="active:text-green-400 hover:text-green-300 cursor-pointer duration-200" @click="scrollToPosition(), prevPage()">назад</button>
     <button
       v-for="page in visiblePages"
       :key="page"
-      @click="page !== '...' && goToPage(page)"
+      @click="page !== '...' && goToPage(page), scrollToPosition()"
       :disabled="page === '...'"
       :class="{
         'text-green-400 font-bold cursor-pointer': currentPage.page === page,
@@ -85,6 +90,6 @@ const visiblePages = computed(() => {
     >
       {{ page }}
     </button>
-    <button class="cursor-pointer active:text-green-400 hover:text-green-300 duration-200" @click="nextPage()">вперёд</button>
+    <button class="cursor-pointer active:text-green-400 hover:text-green-300 duration-200" @click="scrollToPosition(), nextPage()">вперёд</button>
   </div>
 </template>

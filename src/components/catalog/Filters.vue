@@ -36,10 +36,12 @@ function APIFilteredRequest() {
   })
   useFiltersProductsStore().requestAd()
 }
+
 </script>
 
 <template>
   <nav
+    :ref="'toScrollTop'"
     :class="isOpen ? 'max-xl:left-0' : 'max-xl:-left-[1280px]'"
     class=" top-28 max-md:w-full flex max-xl:fixed transition-all max-md:top-16 max-xl:top-24 max-xl:z-40 flex-col h-min bg-black-400 rounded-xl px-4 py-8"
   >

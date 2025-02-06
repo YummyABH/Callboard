@@ -16,6 +16,7 @@ const swiperThumbs = ref(null) // Вертикальный слайдер
 const activeIndex = ref(0) // Текущий индекс слайда
 const modalImg = ref()
 const modelOpen = ref(false)
+const isLoading = ref(true)
 
 const body = document.body
 
@@ -51,12 +52,14 @@ function formatPhoneNumber(number) {
 
 const { create } = adAPIFilters()
 
+
 const dataAd = ref([])
 
 async function requestAd() {
   const response = await create('/' + adId)
   dataAd.value = response
   modalImg.value = dataAd.value.photos[0]
+  isLoading.value = false
 }
 
 onMounted(() => {
@@ -87,8 +90,10 @@ onMounted(() => {
     class="w-full mb-16 grid grid-cols-13 max-md:gap-3 gap-13 bg-black-301 rounded-lg max-sm:p-3 p-6"
   >
     <div class="col-span-7 max-md:col-span-full w-full">
-      <div class="text-2xl max-md:text-lg font-bold mb-5">{{ dataAd.adName }}</div>
-      <div class="flex max-md:flex-col-reverse gap-1.5 max-md:mb-3 mb-6">
+      <div v-if="isLoading" class="mb-6 max-md:mb-3 w-full h-5 animate-pulse bg-gray-200 rounded-sm"></div>
+      <div v-else class="text-2xl max-md:text-lg font-bold mb-5">{{ dataAd.adName }}</div>
+      <div v-if="isLoading" class="w-full h-100 mb-6 max-md:mb-3 animate-pulse bg-gray-200 rounded-sm"></div>
+      <div v-else class="flex max-md:flex-col-reverse gap-1.5 max-md:mb-3 mb-6">
         <swiper
           class="mySwiper w-20 max-md:w-full text-black flex text-center max-md:h-auto max-lg:h-80 h-100"
           :breakpoints="{
@@ -183,11 +188,18 @@ onMounted(() => {
     <div class="col-span-6 w-full max-md:col-span-full">
       <div class="mb-6 max-md:mb-3">
         <span class="text-xl font-medium inline-block mr-4">Цена:</span>
-        <div class="inline-block text-3xl font-semibold">{{ dataAd.price }} ₽</div>
+        <div v-if="isLoading" class=" inline-block w-1/3 h-5 mt-1 rounded-sm bg-gray-200 animate-pulse"></div>
+        <div v-else class="inline-block text-3xl font-semibold">{{ dataAd.price }} ₽</div>
       </div>
 
       <h2 class="text-2xl max-md:text-xl text-green-200 mb-2">Описание</h2>
-      <div class="text-base mb-6 max-sm:text-sm max-md:mb-4">
+      <div v-if="isLoading" class="mb-6 max-md:mb-4">
+            <div class="w-9/10 h-3 mt-1 rounded-sm animate-pulse bg-gray-300"></div>
+            <div class="w-9/10 h-3 mt-1 rounded-sm animate-pulse bg-gray-300"></div>
+            <div class="w-9/10 h-3 mt-1 rounded-sm animate-pulse bg-gray-300"></div>
+            <div class="w-9/10 h-3 mt-1 rounded-sm animate-pulse bg-gray-300"></div>
+        </div>
+      <div v-else class="text-base mb-6 max-sm:text-sm max-md:mb-4">
         {{ dataAd.description }}
       </div>
 
@@ -196,7 +208,8 @@ onMounted(() => {
           class="text-xl max-md:text-lg font-medium inline-block max-sm:mb-2 mb-4 text-green-200"
           >Продавец:</span
         >
-        <div class="text-xl max-md:text-lg">{{ dataAd.firstName }}</div>
+        <div v-if="isLoading" class="w-1/3 h-4 mt-1 rounded-sm bg-gray-200 animate-pulse"></div>
+        <div v-else class="text-xl max-md:text-lg">{{ dataAd.firstName }}</div>
       </div>
 
       <div class="flex gap-4 max-md:mb-4">
@@ -204,7 +217,8 @@ onMounted(() => {
           class="text-xl max-sm:mb-0 max-md:text-lg font-medium inline-block mb-4 text-green-200"
           >Город:</span
         >
-        <div class="text-xl max-md:text-lg">{{ dataAd.region }}</div>
+        <div v-if="isLoading" class="w-1/3 h-4 mt-1 rounded-sm bg-gray-200 animate-pulse"></div>
+        <div v-else class="text-xl max-md:text-lg">{{ dataAd.region }}</div>
       </div>
 
       <div class="mb-6 md:hidden">

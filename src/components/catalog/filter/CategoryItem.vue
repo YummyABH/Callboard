@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
 import { useRouter } from 'vue-router'
 
@@ -11,12 +11,19 @@ const props = defineProps({
   subcategory: Array,
   subcategoryPath: String
 })
+
 const isOpen = ref(false)
+
 const stateStyle = computed(() => ({
   arrow: isOpen.value === true ? 'rotate-90' : 'rotate-0'
 }))
 
 const refsArray = ref([])
+
+const scrollToPosition = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 
 function labelNamed(category, subcategory, subcategoryName) {
   const params = useFiltersProductsStore().filterUrl
@@ -82,7 +89,7 @@ async function APIFilter(category, subcategory, subcategoryName) {
   <Transition>
     <ul v-show="isOpen" v-if="subcategory" class="cursor-pointer">
       <li v-for="(item, index) in subcategory"
-        @click="APIFilter(props.subcategoryPath, item.path, item.subcategoryName)"
+        @click="APIFilter(props.subcategoryPath, item.path, item.subcategoryName), scrollToPosition()"
         @load="labelNamed(props.subcategoryPath, item.path, item.subcategoryName)"
         :ref="(el) => (refsArray[index] = el)" :class="[stateStyle.border]" :key="item"
         class="border-t-[1px] w-full flex self-center text-white bg-gray-800 font-semibold text-base px-4 py-3 hover:bg-gray-700 active:bg-gray-400 duration-300">
