@@ -41,7 +41,7 @@
 }
 
 #app {
-  background: #2d2d2d;
+  background: var(--color-app);
   color: #fff;
   font-weight: normal;
 }

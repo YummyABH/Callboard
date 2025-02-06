@@ -18,5 +18,5 @@ const categoryName = computed(() => {
 </script>
 
 <template>
-	<div class=" text-white font-semibold mb-2 max-xl:mb-0.5 text-2xl max-lg:text-xl max-sm:mb-0">{{ categoryName }} {{totalItems}} товара</div>
+	<div class="text-text-custom font-semibold mb-2 max-xl:mb-0.5 text-2xl max-lg:text-xl max-sm:mb-0">{{ categoryName }} {{totalItems}} товара</div>
 </template>

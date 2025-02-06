@@ -34,11 +34,11 @@ const formattedPrice = computed(() => props.price.toString().replace(/\B(?=(\d{3
     </RouterLink>
     <div class="flex flex-col justify-between h-full">
       <RouterLink :to="'/ad/electronics/' + id + '/' + slugTitle">
-        <span class="text-green-300 inline-block w-full mb-2 max-sm:mb-1 max-lg:text-xs max-sm:text-xs">{{ props.name }}</span>
+        <span class="text-green-300 font-semibold inline-block w-full mb-2 max-sm:mb-1 max-lg:text-xs max-sm:text-xs">{{ props.name }}</span>
       </RouterLink>
       <div class="">
-          <span class="inline-block w-full mb-1 max-sm:mb-0.5 max-sm:text-xs">{{ formattedPrice }} ₽</span>
-          <span class="inline-block w-full mb-1 max-sm:text-xs">{{ props.cities }}</span>
+          <span class="text-text-custom font-medium inline-block w-full mb-1 max-sm:mb-0.5 max-sm:text-xs">{{ formattedPrice }} ₽</span>
+          <span class="text-text-custom inline-block w-full mb-1 max-sm:text-xs">{{ props.cities }}</span>
       </div>
     </div>
   </div>

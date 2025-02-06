@@ -86,7 +86,7 @@ const goToPage = async (strPath) => {
           <div
             @click.prevent="searchOpen = true"
             :class="searchOpen ? 'md:max-xl:hidden' : 'md:max-xl:flex'"
-            class="mr-8 items-center min-h-full hidden items-center"
+            class="mr-8 items-center min-h-full hidden"
           >
             <Search class="z-20 md:h-6.5 md:w-6.5 h-5 w-5" />
           </div>

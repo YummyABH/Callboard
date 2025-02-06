@@ -1,6 +1,7 @@
 :root {
   --bg-body: white;
   --black-300: #212124;
+  --black-500: #ffffff;
   --black-900: #fff;
   --bg-custom-50: white;
   --bg-custom-100: #e5e5e5;
@@ -10,10 +11,18 @@
   --bg-custom-500: white;
   --bg-custom-600: #f1f1f1;
   --bg-red-600: #e4002b;
+  --gradient-from: #f0f0f0;
+  --gradient-to: #f0f0f0;
+  --green-200: #02cc89;
+  --green-300: #019463;
+  --green-400: #00964e;
+  --green-500: #008042;
   --hover-light: white;
   --hover-custom-100: white;
   --hover-custom-200: white;
   --hover-custom-500: #e4002b;
+  --black-299: #f0f0f0;
+  --black-400: #fff;
   --border-submenu: #cbd5e1;
   --border-custom-200: #d4d4d4d4;
   --border-custom-300: #00000040;
@@ -26,10 +35,13 @@
   --text-custom-500: black;
   --text-custom-600: black;
   --test: #363652;
+  --white-theme: #141414;
+  --color-app: #f0f0f0;
   --test: #02cc89;
 }
 
 .dark:root {
+  --color-app: #2d2d2d;
   --bg-body: #424243;
   --bg-custom-50: #525156;
   --bg-custom-100: #9d9d9d;
@@ -39,8 +51,17 @@
   --bg-custom-500: #3c3a3a;
   --bg-custom-600: #5c5c5cd4;
   --bg-red-600: #ff4343;
+  --black-299: #454548;
   --black-300: #212124;
+  --black-400: #1d1d1f;
+  --black-500: #202023;
   --black-900: #121212;
+  --gradient-from: #202023;
+  --gradient-to: #2d2d2d;
+  --green-200: #02cc89;
+  --green-300: #00bd7e;
+  --green-400: #00964e;
+  --green-500: #008042;
   --hover-light: #c8c7c7;
   --hover-custom-100: white;
   --hover-custom-200: #555a5f;
@@ -56,4 +77,5 @@
   --text-custom-300: #ff4343;
   --text-custom-500: #b0b0b0;
   --text-custom-600: #424243;
+  --white-theme: #fff
 }

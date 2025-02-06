@@ -23,7 +23,7 @@ const styleActiveItem = ref('min-h-full h-auto min-w-full z-50 rotate-y-360')
   >
     <div
       :class="active === index ? styleActiveContainer : ''"
-      class="max-sm:text-xs group-hover:rotate-y-180  backface-hidden transform-3d transform absolute duration-500 hyphens-auto z-10 w-full h-full bg-black-299 p-2 rounded-md"
+      class="max-sm:text-xs group-hover:rotate-y-180 text-text-custom font-medium backface-hidden transform-3d transform absolute duration-500 hyphens-auto z-10 w-full h-full bg-black-299 p-2 rounded-md"
       lang="ru"
     >
       <slot></slot>
@@ -39,7 +39,9 @@ const styleActiveItem = ref('min-h-full h-auto min-w-full z-50 rotate-y-360')
         :key="index"
       >
         <RouterLink :to="'/catalog/' + pathCategory + '/' + item.path">
-          {{ item.subcategoryName }}
+          <span class="text-text-custom">
+            {{ item.subcategoryName }}
+          </span>
         </RouterLink>
       </li>
     </ul>

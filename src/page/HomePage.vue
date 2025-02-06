@@ -9,7 +9,7 @@ import BaseProducts from '@/components/home/BaseProducts.vue'
 	<!-- <Preview class="max-md:hidden " /> -->
 	<!-- <div class="max-md:block hidden h-[50vh] w-screen bg-black-300"></div> -->
 	<BaseProducts/>
-	<div class="max-lg:min-h-6 min-h-12 w-full bg-linear-to-t from-[#202023] to-[#2d2d2d] "></div>
+	<div class="max-lg:min-h-6 min-h-12 w-full bg-linear-to-t from-gradient-from to-gradient-to "></div>
 	<CategoriesGrid />
 	<!-- <div class="max-lg:min-h-12 min-h-20 w-full bg-linear-to-t from-black-300 to-[#202023] "></div> -->
 	<!-- <Advantages /> -->

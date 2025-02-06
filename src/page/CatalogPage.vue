@@ -42,7 +42,7 @@ watch(isOpen, () => {
     <ContentContainer>
       <Breadcrumbs />
       <div class="max-sm:gap-y-2 relative max-xl:gap-x-0 grid gap-x-8 gap-y-4 grid-cols-12">
-        <Title class=" max-sm:text-base col-span-full" />
+        <Title class="max-sm:text-base col-span-full" />
         <Filters v-model:open="isOpen" class="max-xl:max-h-[calc(100vh-96px)] overflow-y-auto col-span-3" />
         <BaseProducts v-model:listAdLoading="listAdLoading" v-model:open="isOpen"  class="max-xl:col-span-12 col-span-9" />
         <PaginationProducts v-if="data[0]" class="max-xl:col-span-12 col-span-9" />

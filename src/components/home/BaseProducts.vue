@@ -23,7 +23,7 @@ onMounted(() => {
 <template>
   <div class="w-full pb-2 pt-6 max-md:mt-16 mt-24">
     <ContentContainer>
-      <div class="text-2xl text-center mb-5 max-lg:text-base max-lg:mb-2 max-[540px]:text-2xl">
+      <div class="text-2xl text-text-custom text-center mb-5 max-lg:text-base max-lg:mb-2 max-[540px]:text-2xl">
         Последние объявления
       </div>
 
