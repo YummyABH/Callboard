@@ -19,7 +19,7 @@ function APIFilterName() {
 </script>
 
 <template>
-  <form class="text-white flex justify-between overflow-hidden bg-black-299 rounded-xl">
+  <form class="text-white flex justify-between overflow-hidden bg-form-gray rounded-xl">
     <input
       v-model="textSearch"
       type="text"

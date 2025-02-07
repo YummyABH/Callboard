@@ -26,7 +26,7 @@ import IconUser from '@/components/ui/icons/IconUser.vue'
         />
       </svg>
 
-      <span class="1d1d1f">Мои объявления</span>
+      <span class="text-text-custom">Мои объявления</span>
     </RouterLink>
     <RouterLink to="/user/profile" class="active:text-green-300 duration-200 gap-0.5 flex h-max justify-center flex-col items-center">
       <IconUser />

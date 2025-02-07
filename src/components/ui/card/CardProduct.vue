@@ -46,22 +46,24 @@ const img = ref()
           {{ props.title }}
         </h2>
       </RouterLink>
-      <h3 class="max-md:text-sm max-sm:text-lg max-lg:mb-2 block text-xl font-medium text-white mb-4">
+      <h3 class="max-md:text-sm max-sm:text-lg max-lg:mb-2 block text-xl font-medium text-text-custom mb-4">
         {{ formattedPrice }} ₽
       </h3>
-      <div class="max-lg:text-xs max-h-[94px] text-gray-300 overflow-hidden">
+      <div class="max-lg:text-xs max-h-[94px] text-text-custom overflow-hidden">
         <RouterLink :to="'/ad/electronics/' + id + '/' + slugTitle">
-          {{ props.subtitle }}
+          <span class="text-text-custom">
+            {{ props.subtitle }}
+          </span>
         </RouterLink>
       </div>
     </div>
     <div class="max-md:col-span-3 max-lg:col-span-2 flex flex-col justify-between col-span-2">
       <div class="max-sm:hidden flex gap-x-7 items-center">
-        <span class="max-lg:text-base max-md:text-sm text-xl font-semibold text-gray-300">{{ props.name + ' ' + surname }}</span>
+        <span class="max-lg:text-base max-md:text-sm text-xl font-semibold text-text-custom">{{ props.name + ' ' + surname }}</span>
       </div>
       <div class="grid max-md:gap-1 grid-cols-4 gap-2 ">
-        <div class="max-md:text-xs col-span-4 max-lg:my-0 my-1 text-gray-300">
-          Регион: <span class="text-white">{{ props.region }}</span>
+        <div class="max-md:text-xs col-span-4 max-lg:my-0 my-1 font-light text-text-custom">
+          Регион: <span class=" font-medium text-text-custom">{{ props.region }}</span>
         </div>
         <a :href="whatsapp">
           <WhatsappSmall v-if="props.whatsapp" :whatsapp="whatsapp" class="max-[374px]:hidden" />

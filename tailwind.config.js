@@ -69,6 +69,7 @@ module.exports = {
         'text-custom-500': `var(--text-custom-500)`,
         'text-custom-600': `var(--text-custom-600)`,
         'gray-light': '#3c3a3a',
+        'form-gray': `var(--form-gray)`,
         'white-light': '#b0b0b0',
         'white-theme': `var(--white-theme)`
       },

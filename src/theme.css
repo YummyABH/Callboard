@@ -35,6 +35,7 @@
   --text-custom-500: black;
   --text-custom-600: black;
   --test: #363652;
+  --form-gray: #fff;
   --white-theme: #141414;
   --color-app: #f0f0f0;
   --test: #02cc89;
@@ -77,5 +78,6 @@
   --text-custom-300: #ff4343;
   --text-custom-500: #b0b0b0;
   --text-custom-600: #424243;
+  --form-gray: #454548;
   --white-theme: #fff
 }
