@@ -1,6 +1,6 @@
 :root {
   --bg-body: white;
-  --black-300: #212124;
+  --black-300: #949494;
   --black-500: #ffffff;
   --black-900: #fff;
   --bg-custom-50: white;
@@ -13,6 +13,8 @@
   --bg-red-600: #e4002b;
   --gradient-from: #f0f0f0;
   --gradient-to: #f0f0f0;
+  --gray-500: #b4b4b4;
+  --gray-800: #e7e7e7;
   --green-200: #02cc89;
   --green-300: #019463;
   --green-400: #00964e;
@@ -59,6 +61,8 @@
   --black-900: #121212;
   --gradient-from: #202023;
   --gradient-to: #2d2d2d;
+  --gray-500: #464646;
+  --gray-800: #606060;
   --green-200: #02cc89;
   --green-300: #00bd7e;
   --green-400: #00964e;

@@ -47,7 +47,7 @@ const stateStyle = computed(() => ({
   <div class="flex flex-col border-b-[1px] border-green-400">
     <div
       @click="isOpen = !isOpen"
-      class="hover:bg-gray-900 active:bg-gray-901 duration-200 py-3 px-4 w-full cursor-pointer border-y bg-gray-500 border-gray-500 text-white flex gap-x-3 font-semibold text-xl"
+      class="hover:bg-gray-900 active:bg-gray-901 duration-200 py-3 px-4 w-full cursor-pointer border-y bg-gray-500 border-gray-500 text-text-custom flex gap-x-3 font-semibold text-xl"
     >
       <span :class="[stateStyle.arrow]" class="duration-500 transition-all inline-block">></span
       >Цена

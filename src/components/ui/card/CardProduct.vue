@@ -75,8 +75,10 @@ const img = ref()
           <PhoneSmall v-if="props.phone" :phone="phone" class="max-[374px]:hidden" />
         </a>
         <!-- <FavoriteSmall class="max-[374px]:hidden" /> -->
-        <RouterLink :to="'/ad/electronics/' + id + '/' + slugTitle" class="hover:bg-gray-700 active:bg-gray-800 cursor-pointer duration-200 max-md:py-1 max-md:px-2 text-center col-span-4 py-2 px-4 text-white rounded-lg inline-block bg-gray-500">
-          Подробнее
+        <RouterLink :to="'/ad/electronics/' + id + '/' + slugTitle" class="hover:bg-gray-700 active:bg-gray-800 cursor-pointer duration-200 max-md:py-1 max-md:px-2 text-center col-span-4 py-2 px-4 text-text-custom rounded-lg inline-block bg-gray-500">
+          <span class="text-text-custom">
+            Подробнее
+          </span>
         </RouterLink>
       </div>
     </div>

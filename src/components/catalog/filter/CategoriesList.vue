@@ -37,7 +37,7 @@ async function APIFilter() {
 <template>
   <ul class=" grid gap-y-px border-y-[1px] border-green-400">
     <div @click="APIFilter(), isOpen = false"
-      class="w-full flex self-center text-white bg-black-300 hover:bg-gray-900 active:bg-gray-901 duration-200 font-semibold text-base px-4 py-3 cursor-pointer">
+      class="w-full flex self-center text-text-custom bg-black-300 hover:bg-gray-900 active:bg-gray-901 duration-200 font-semibold text-base px-4 py-3 cursor-pointer">
       Все товары
     </div>
     <CategoryItem v-for="(item, index) in data" :key="index" v-model:openFilterList="isOpen" :subcategoryPath="item.path" :category="item.categoryName"

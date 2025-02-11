@@ -79,7 +79,7 @@ async function APIFilter(category, subcategory, subcategoryName) {
 
 <template>
   <div @click="isOpen = !isOpen" :class="[subcategory.length !== 0 ? 'cursor-pointer' : '']"
-    class="hover:bg-gray-900 active:bg-gray-901 duration-200 w-full flex self-center text-white bg-gray-500 font-semibold text-base px-4 py-3">
+    class="hover:bg-gray-900 active:bg-gray-901 duration-200 w-full flex self-center text-text-custom bg-gray-500 font-semibold text-base px-4 py-3">
     <li class="select-none flex gap-x-3">
       <span :class="[stateStyle.arrow, subcategory.length === 0 ? 'hidden' : 'inline-block']"
         class="duration-300 flex items-center">></span>
@@ -92,7 +92,7 @@ async function APIFilter(category, subcategory, subcategoryName) {
         @click="APIFilter(props.subcategoryPath, item.path, item.subcategoryName), scrollToPosition()"
         @load="labelNamed(props.subcategoryPath, item.path, item.subcategoryName)"
         :ref="(el) => (refsArray[index] = el)" :class="[stateStyle.border]" :key="item"
-        class="border-t-[1px] w-full flex self-center text-white bg-gray-800 font-semibold text-base px-4 py-3 hover:bg-gray-700 active:bg-gray-400 duration-300">
+        class="border-t-[1px] w-full flex self-center text-text-custom bg-gray-800 font-semibold text-base px-4 py-3 hover:bg-gray-700 active:bg-gray-400 duration-300">
         {{ item.subcategoryName }}
       </li>
     </ul>

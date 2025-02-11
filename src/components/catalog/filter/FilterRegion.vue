@@ -37,12 +37,12 @@ function filterRegion() {
 </script>
 
 <template>
-  <form class="flex text-white flex-col border-y-[1px] border-green-400">
-    <label for="region-select" class="px-4 py-3 font-semibold text-xl text-white bg-gray-500">Выбор региона:</label>
+  <form class="flex text-text-custom flex-col border-y-[1px] border-green-400">
+    <label for="region-select" class="px-4 py-3 font-semibold text-xl text-text-custom bg-gray-500">Выбор региона:</label>
     <select @click="filterRegion()" name="region" v-model="regionValue"
       class="cursor-pointer hover:bg-gray-700 active:bg-gray-400 duration-200 font-semibold text-base appearance-none bg-gray-800 border-none focus:outline-hidden focus:ring-0 px-4 py-3 m-0"
       id="region-select">
-      <option value="default" class="text-white">Все регионы</option>
+      <option value="default" class="text-text-custom">Все регионы</option>
       <option v-for="item in dataRegion" :value="item.id" :key="item.id">
         {{ item.regionName }}
       </option>
