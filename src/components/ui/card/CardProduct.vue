@@ -62,7 +62,7 @@ const img = ref()
         <span class="max-lg:text-base max-md:text-sm text-xl font-semibold text-text-custom">{{ props.name + ' ' + surname }}</span>
       </div>
       <div class="grid max-md:gap-1 grid-cols-4 gap-2 ">
-        <div class="max-md:text-xs col-span-4 max-lg:my-0 my-1 font-light text-text-custom">
+        <div class="max-md:text-xs col-span-4  max-lg:my-0 my-1 font-light text-text-custom">
           Регион: <span class=" font-medium text-text-custom">{{ props.region }}</span>
         </div>
         <a :href="whatsapp">
