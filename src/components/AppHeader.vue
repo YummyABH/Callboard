@@ -43,7 +43,7 @@ const goToPage = async (strPath) => {
         <div class="w-full max-lg:ml-5 max-sm:ml-2 ml-10 z-10 flex justify-between items-center">
           <form
             :class="searchOpen ? 'md:max-xl:flex' : 'md:max-xl:hidden'"
-            class="mr-12 xl:flex max-sm:mr-8 h-8.5 max-md:flex items-center w-full text-white justify-between overflow-hidden bg-black-299 rounded-lg"
+            class="mr-12 xl:flex max-sm:mr-8 h-8.5 max-md:flex items-center w-full text-text-custom justify-between overflow-hidden bg-black-299 rounded-lg"
           >
             <input
               v-model="searchInput"
@@ -56,13 +56,13 @@ const goToPage = async (strPath) => {
             />
             <button
               @click.prevent="goToPage(searchInput)"
-              class="max-sm:hidden h-full duration-200 max-sm:max-w-[20%] hover:bg-gray-800 active:bg-gray-900 flex cursor-pointer text-xl max-md:px-6 px-5 bg-gray-700 items-center"
+              class="max-sm:hidden text-text-custom h-full duration-200 max-sm:max-w-[20%] hover:bg-gray-800 active:bg-gray-900 flex cursor-pointer text-xl max-md:px-6 px-5 bg-gray-700 items-center"
             >
               Найти
             </button>
             <div
               @click.prevent="goToPage(searchInput)"
-              class="max-sm:flex items-center hidden min-h-full px-4 bg-black hover:bg-gray-800 active:bg-gray-900 bg-gray-700"
+              class="max-sm:flex items-center hidden min-h-full px-4 hover:bg-gray-800 active:bg-gray-900 bg-gray-700"
             >
               <Search class="z-20 h-5 w-5" />
             </div>

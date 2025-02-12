@@ -108,7 +108,7 @@ const onPaste = (event) => {
   >
     <p class="text-sm max-lg:hidden">
       Перетащите фото сюда, вставьте из буфера обмена или
-      <span class="text-gray-100 underline cursor-pointer" @click="selectImages">
+      <span class="text-text-custom underline cursor-pointer" @click="selectImages">
         выберите их на своем компьютере...
       </span>
     </p>

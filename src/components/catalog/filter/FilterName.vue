@@ -19,7 +19,7 @@ function APIFilterName() {
 </script>
 
 <template>
-  <form class="text-white flex justify-between overflow-hidden bg-form-gray rounded-xl">
+  <form class="text-text-custom flex justify-between overflow-hidden bg-form-gray rounded-xl">
     <input
       v-model="textSearch"
       type="text"
@@ -31,7 +31,7 @@ function APIFilterName() {
     />
     <button
       @click.prevent="APIFilterName()"
-      class="cursor-pointer duration-200 hover:bg-gray-800 active:bg-gray-900 flex text-xl max-md:px-6 px-10 bg-gray-700 items-center"
+      class="cursor-pointer text-text-custom duration-200 hover:bg-gray-800 active:bg-gray-900 flex text-xl max-md:px-6 px-10 bg-gray-700 items-center"
     >
       Найти
     </button>

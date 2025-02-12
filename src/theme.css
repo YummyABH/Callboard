@@ -14,7 +14,11 @@
   --gradient-from: #f0f0f0;
   --gradient-to: #f0f0f0;
   --gray-500: #b4b4b4;
+  --gray-600: #fafafa;
+  --gray-700: #c5c5c5;
   --gray-800: #e7e7e7;
+  --gray-900: #d1d1d1;
+  --gray-901: #808080;
   --green-200: #02cc89;
   --green-300: #019463;
   --green-400: #00964e;
@@ -24,6 +28,7 @@
   --hover-custom-200: white;
   --hover-custom-500: #e4002b;
   --black-299: #f0f0f0;
+  --black-301: #d3d3d3;
   --black-400: #fff;
   --border-submenu: #cbd5e1;
   --border-custom-200: #d4d4d4d4;
@@ -39,6 +44,8 @@
   --test: #363652;
   --form-gray: #fff;
   --white-theme: #141414;
+  --input-border: #b9b9b9;
+  --glow-button: rgba(255, 255, 255, 0.5);
   --color-app: #f0f0f0;
   --test: #02cc89;
 }
@@ -56,13 +63,18 @@
   --bg-red-600: #ff4343;
   --black-299: #454548;
   --black-300: #212124;
+  --black-301: #3d3d41;
   --black-400: #1d1d1f;
   --black-500: #202023;
   --black-900: #121212;
   --gradient-from: #202023;
   --gradient-to: #2d2d2d;
   --gray-500: #464646;
+  --gray-600: #464646;
+  --gray-700: #777777;
   --gray-800: #606060;
+  --gray-900: #353535;
+  --gray-901: #2e2e2e;
   --green-200: #02cc89;
   --green-300: #00bd7e;
   --green-400: #00964e;
@@ -82,6 +94,8 @@
   --text-custom-300: #ff4343;
   --text-custom-500: #b0b0b0;
   --text-custom-600: #424243;
+  --input-border: #454548;
   --form-gray: #454548;
+  --glow-button: rgba(29,29,31,0.5);
   --white-theme: #fff
 }

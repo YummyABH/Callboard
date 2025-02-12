@@ -74,7 +74,7 @@ const visiblePages = computed(() => {
 </script>
 
 <template>
-  <div class="flex gap-x-3 xl:-translate-x-1/2 justify-self-end items-start max-xl:justify-self-center text-white">
+  <div class="flex gap-x-3 xl:-translate-x-1/2 justify-self-end items-start max-xl:justify-self-center text-text-custom">
     <button class="active:text-green-400 hover:text-green-300 cursor-pointer duration-200" @click="scrollToPosition(), prevPage()">назад</button>
     <button
       v-for="page in visiblePages"

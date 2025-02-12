@@ -16,17 +16,17 @@ const getNavItemClass = (to) => {
 
 <template>
     <nav class="overflow-auto my-6">
-        <ul class="text-lg text-white flex gap-3">
+        <ul class="text-lg text-text-custom flex gap-3">
             <RouterLink to="/user/profile">
-                <li :class="getNavItemClass('/user/profile')" class="relative hover:before:bg-green-200 before:duration-200 hover:before:bottom-0 hover:before:left-0 hover:before:w-full hover:before:h-[2px] hover:before:bg-green-200 before:absolute cursor-pointer pb-3 gap-3 items-center flex gap-3 items-center">
+                <li :class="getNavItemClass('/user/profile')" class="relative hover:before:bg-green-200 before:duration-200 hover:before:bottom-0 hover:before:left-0 hover:before:w-full hover:before:h-[2px] before:absolute cursor-pointer pb-3 flex gap-3 items-center">
                     <IconUser />
-                    <span class="max-[440px]:text-xs max-sm:text-xs">Профиль</span>
+                    <span class="max-[440px]:text-xs text-text-custom max-sm:text-xs">Профиль</span>
                 </li>
             </RouterLink>
             <RouterLink to="/user/my-ads" >
-                <li :class="getNavItemClass('/user/my-ads')" class="relative hover:before:bg-green-200 before:duration-200 hover:before:bottom-0 hover:before:left-0 hover:before:w-full hover:before:h-[2px] hover:before:bg-green-200 before:absolute cursor-pointer pb-3 gap-3 items-center flex gap-3 items-center">
+                <li :class="getNavItemClass('/user/my-ads')" class="relative hover:before:bg-green-200 before:duration-200 hover:before:bottom-0 hover:before:left-0 hover:before:w-full hover:before:h-[2px] before:absolute cursor-pointer pb-3 flex gap-3 items-center">
                     <IconList />
-                    <span class="max-[440px]:text-xs max-sm:text-xs">Объявления</span>
+                    <span class="max-[440px]:text-xs text-text-custom max-sm:text-xs">Объявления</span>
                 </li>
             </RouterLink>
 

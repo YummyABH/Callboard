@@ -4,7 +4,7 @@ import Telegram from '@/components/ui/icons/Telegram.vue'
 </script>
 
 <template>
-	<footer class="py-10 max-md:pb-20 bg-black-400">
+	<footer class="py-10 max-md:pb-20 bg-[#1d1d1f]">
 		<ContentContainer>
 			<ul
 				class="flex mb-5 text-base text-gray-300 max-sm:gap-y-5 max-sm:flex-wrap max-sm:gap-x-8 max-sm:justify-between gap-x-32 justify-center">

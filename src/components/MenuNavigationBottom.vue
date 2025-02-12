@@ -16,7 +16,7 @@ import IconUser from '@/components/ui/icons/IconUser.vue'
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        stroke="currentColor"
+        stroke="var(--text-custom)"
         class="size-6"
       >
         <path
@@ -30,11 +30,11 @@ import IconUser from '@/components/ui/icons/IconUser.vue'
     </RouterLink>
     <RouterLink to="/user/profile" class="active:text-green-300 duration-200 gap-0.5 flex h-max justify-center flex-col items-center">
       <IconUser />
-      <span>Профиль</span>
+      <span class="text-text-custom">Профиль</span>
     </RouterLink>
     <RouterLink to="/catalog" class="active:text-green-300 duration-200 gap-0.5 flex h-max justify-center flex-col items-center">
       <IconList />
-      <span>Катлог</span>
+      <span class="text-text-custom">Катлог</span>
     </RouterLink>
   </div>
 </template>

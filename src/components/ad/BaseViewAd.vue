@@ -75,7 +75,7 @@ onMounted(() => {
       fill="none"
       viewBox="0 0 24 24"
       stroke-width="1.5"
-      stroke="currentColor"
+      stroke="var(--text-custom)"
       class="size-6"
     >
       <path
@@ -84,14 +84,16 @@ onMounted(() => {
         d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
       />
     </svg>
-    Назад
+    <span class="text-text-custom">
+      Назад
+    </span>
   </div>
   <div
     class="w-full mb-16 grid grid-cols-13 max-md:gap-3 gap-13 bg-black-301 rounded-lg max-sm:p-3 p-6"
   >
     <div class="col-span-7 max-md:col-span-full w-full">
       <div v-if="isLoading" class="mb-6 max-md:mb-3 w-full h-5 animate-pulse bg-gray-200 rounded-sm"></div>
-      <div v-else class="text-2xl max-md:text-lg font-bold mb-5">{{ dataAd.adName }}</div>
+      <div v-else class="text-2xl text-text-custom max-md:text-lg font-bold mb-5">{{ dataAd.adName }}</div>
       <div v-if="isLoading" class="w-full h-100 mb-6 max-md:mb-3 animate-pulse bg-gray-200 rounded-sm"></div>
       <div v-else class="flex max-md:flex-col-reverse gap-1.5 max-md:mb-3 mb-6">
         <swiper
@@ -146,7 +148,7 @@ onMounted(() => {
       </div>
 
       <div class="mb-6 max-md:hidden">
-        <span class="text-xl max-md:text-base font-medium inline-block mb-4"
+        <span class="text-xl text-text-custom max-md:text-base font-medium inline-block mb-4"
           >Контакты для связи:</span
         >
         <div class="flex flex-wrap gap-3">
@@ -179,20 +181,20 @@ onMounted(() => {
             <div class="text-center w-max text-base min-w-23 px-1.5 py-1.5 rounded-sm bg-black-300">
               Телефон:
             </div>
-            <div class="text-xl lining-nums">{{ formatPhoneNumber(dataAd.phonenumber) }}</div>
+            <div class="text-xl text-text-custom lining-nums">{{ formatPhoneNumber(dataAd.phonenumber) }}</div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-span-6 w-full max-md:col-span-full">
+    <div class="col-span-6 w-full text-text-custom max-md:col-span-full">
       <div class="mb-6 max-md:mb-3">
         <span class="text-xl font-medium inline-block mr-4">Цена:</span>
         <div v-if="isLoading" class=" inline-block w-1/3 h-5 mt-1 rounded-sm bg-gray-200 animate-pulse"></div>
         <div v-else class="inline-block text-3xl font-semibold">{{ dataAd.price }} ₽</div>
       </div>
 
-      <h2 class="text-2xl max-md:text-xl text-green-200 mb-2">Описание</h2>
+      <h2 class="text-2xl max-md:text-xl text-green-300 mb-2">Описание</h2>
       <div v-if="isLoading" class="mb-6 max-md:mb-4">
             <div class="w-9/10 h-3 mt-1 rounded-sm animate-pulse bg-gray-300"></div>
             <div class="w-9/10 h-3 mt-1 rounded-sm animate-pulse bg-gray-300"></div>
@@ -205,7 +207,7 @@ onMounted(() => {
 
       <div class="flex gap-4">
         <span
-          class="text-xl max-md:text-lg font-medium inline-block max-sm:mb-2 mb-4 text-green-200"
+          class="text-xl max-md:text-lg font-medium inline-block max-sm:mb-2 mb-4 text-green-300"
           >Продавец:</span
         >
         <div v-if="isLoading" class="w-1/3 h-4 mt-1 rounded-sm bg-gray-200 animate-pulse"></div>
@@ -214,7 +216,7 @@ onMounted(() => {
 
       <div class="flex gap-4 max-md:mb-4">
         <span
-          class="text-xl max-sm:mb-0 max-md:text-lg font-medium inline-block mb-4 text-green-200"
+          class="text-xl max-sm:mb-0 max-md:text-lg font-medium inline-block mb-4 text-green-300"
           >Город:</span
         >
         <div v-if="isLoading" class="w-1/3 h-4 mt-1 rounded-sm bg-gray-200 animate-pulse"></div>

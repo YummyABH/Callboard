@@ -3,7 +3,7 @@
 
 <template>
 	<div class="flex justify-center">
-		<div class="p-2 rounded-lg bg-black-301 hover:bg-black-300 duration-200 active:bg-black-299">
+		<div class="p-2 rounded-lg bg-[#3d3d41] hover:bg-black-300 duration-200 active:bg-black-299">
 			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="28" height="28" fill="white"
 				viewBox="0 0 80 80">
 				<path

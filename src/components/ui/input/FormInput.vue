@@ -57,7 +57,7 @@ const formClass = computed(() => ({
   <div class=" relative">
     <input :id="id" :type="type" v-model="modelValue" :placeholder="placeholder" :minlength="minlength" :maxlength="maxlength"
     @input="handleInput"  
-    class="peer autofill:bg-transparent block z-10 w-full px-3 py-3 border-[1px] border-black-299 rounded-none appearance-none bg-transparent focus:outline-hidden focus:ring-0"
+    class="peer autofill:bg-transparent block z-10 w-full px-3 py-3 border-[1px] border-input-border rounded-none appearance-none bg-transparent focus:outline-hidden focus:ring-0"
       :required="required" />
     <label :for="id" :class="formClass"
       class="peer-focus:-top-[10px] peer-focus:text-green-300 left-3 peer-focus:left-3 peer-focus:px-1 cursor-text select-none duration-200 absolute block text-sm font-medium ">{{

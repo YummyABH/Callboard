@@ -71,7 +71,7 @@ watch(
 
 <template>
   <div class="flex overflow-visible relative gap-10">
-    <form class="max-md:gap-5 max-w-2/3 px-3 max-lg:max-w-full max-lg:w-full max-sm:grid-cols-5 bg-gray-600 rounded-lg gap-y-8 gap-x-8 p-6 grid grid-cols-4">
+    <form class="max-md:gap-5 text-text-custom max-w-2/3 px-3 max-lg:max-w-full max-lg:w-full max-sm:grid-cols-5 bg-gray-600 rounded-lg gap-y-8 gap-x-8 p-6 grid grid-cols-4">
       <label for="category" class="max-md:hidden col-span-1 max-sm:col-span-2 text-lg max-xl:text-sm">
         {{ arrayInputTemplate.category }}: <span class="text-red-400 text-xl">*</span>
       </label>
@@ -195,10 +195,10 @@ watch(
       <label for="price" class="max-md:hidden max-xl:text-sm max-sm:col-span-2 row-start-8 col-span-1 text-lg text-left">
         {{ arrayInputTemplate.feedback }}: <span class="text-red-400 text-xl">*</span>
       </label>
-      <div class="max-md:col-span-full overflow-hidden flex gap-2 row-start-8 col-span-2 flex flex-wrap max-xl:col-span-3">
+      <div class="max-md:col-span-full overflow-hidden flex gap-2 row-start-8 col-span-2 flex-wrap max-xl:col-span-3">
         <UploadFeedback v-model:feedbackRefs="formRefs.feedback" v-model:feedbackTelegram="inputValues.feedback.telegram" v-model:feedbackTelephon="inputValues.feedback.telephone" v-model:feedbackWhatsapp="inputValues.feedback.whatsapp"/>
       </div>
-      <button @click.prevent="" class="cursor-pointer max-md:col-span-3 max-md:col-start-2 row-start-9 col-span-2 w-max justify-self-center col-start-2 px-2 py-2 rounded-md duration-200 bg-green-500 hover:bg-green-400 active:bg-green-300">
+      <button @click.prevent="" class="cursor-pointer text-white max-md:col-span-3 max-md:col-start-2 row-start-9 col-span-2 w-max justify-self-center col-start-2 px-2 py-2 rounded-md duration-200 bg-green-500 hover:bg-green-400 active:bg-green-300">
         Опубликовать объявление
       </button>
     </form>
