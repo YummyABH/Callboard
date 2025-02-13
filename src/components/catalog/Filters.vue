@@ -54,7 +54,7 @@ function APIFilteredRequest() {
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        stroke="currentColor"
+        stroke="var(--text-custom)"
         class="size-6"
       >
         <path
@@ -63,7 +63,7 @@ function APIFilteredRequest() {
           d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
         />
       </svg>
-      <span>Каталог</span>
+      <span class="text-text-custom">Каталог</span>
     </div>
     <div class="w-full inline-block">
       <button

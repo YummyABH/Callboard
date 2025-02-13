@@ -4,7 +4,7 @@ import FilterName from '@/components/catalog/filter/FilterName.vue'
 
 // Сортировка
 // import Sorting from '@/components/catalog/Sorting.vue'
-// import Filter from '@/components/ui/icons/Filter.vue'
+import Filter from '@/components/ui/icons/Filter.vue'
 import SkeleyonAdItem from '../ui/skeleton/SkeleyonAdItem.vue'
 import CardProductMini from '@/components/ui/card/CardProductMini.vue'
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
@@ -15,21 +15,23 @@ const {data} = storeToRefs(useFiltersProductsStore())
 const listAdLoading = defineModel('listAdLoading')
 
 // Сортировка
-// const isOpen = defineModel('open')
+const isOpen = defineModel('open')
 </script>
 
 <template>
   <div class="flex flex-col gap-y-4">
     <FilterName />
-
+    
     <!-- Сортировка -->
-    <!-- <div class="flex justify-between">
-      <Sorting class="inline-block" />
+    <div class="flex justify-between">
+      <!-- <Sorting class="inline-block" /> -->
       <div @click="isOpen = !isOpen" class="max-xl:flex hidden gap-x-2 items-center">
         <Filter />
-        Фильтры
+        <span class="text-text-custom">
+          Фильтры
+        </span>
       </div>
-    </div> -->
+    </div>
     <div v-if="data[0] && !listAdLoading" class="lining-nums grid max-[540px]:grid-cols-2 max-[640px]:grid-cols-3 gap-4">
       <CardProduct v-for="(item, index) in data" :key="index" :price="item.price" :title="item.adName"
         :subtitle="item.description" :region="item.region" :photo-url="item.photos" :name="item.firstName"
