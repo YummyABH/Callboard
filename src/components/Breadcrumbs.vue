@@ -58,7 +58,7 @@ watch(
 </script>
 
 <template>
-  <ol class="flex my-4 gap-6 max-lg:mt-3 max-lg:mb-2">
+  <ol class="flex my-4 gap-6 max-lg:mt-3 max-lg:mb-2 overflow-x-auto">
     <li>
       <RouterLink class="text-white-theme hover:bg-inherit hover:text-green-300 active:text-green-400 duration-200" to="/">
         <span class="text-text-custom">

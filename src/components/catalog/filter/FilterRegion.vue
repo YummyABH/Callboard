@@ -2,13 +2,14 @@
 import { regionsAPI } from '@/API/regionsRequest.js'
 import { ref, onMounted, defineModel, watch } from 'vue'
 import { useFiltersProductsStore } from '@/stores/filtersProducts.js'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute()
 const isOpen = defineModel('isOpen')
 
 const router = useRouter()
 const dataRegion = ref()
-const regionValue = ref('default')
+const regionValue = ref(route.query.regionId ? route.query.regionId : 'default')
 const { regionList } = regionsAPI()
 
 
@@ -16,8 +17,12 @@ onMounted(async () => {
   dataRegion.value = await regionList()
 })
 
+watch(() => route.fullPath, () => {  
+  regionValue.value = route.query.regionId ? route.query.regionId : 'default'
+})
+
 watch(regionValue, () => {
-  isOpen.value = false
+  isOpen.value = false  
 })
 
 function filterRegion() {
