@@ -47,7 +47,7 @@ const isOpen = defineModel('open')
         <div
           v-for="index in 6"
           :key="index"
-          class="animate-pulse flex flex-col p-2 bg-black-500 rounded-sm"
+          class=" animate-pulse sm:hidden flex flex-col p-2 bg-black-500 rounded-sm"
         >
           <div class="w-full h-40 max-[1280px]:h-32 max-[768px]:h-28 max-[440px]:h-20 bg-gray-200 rounded-sm"></div>
           <div class="w-3/4 h-4 mt-2 rounded-sm bg-gray-200"></div>
