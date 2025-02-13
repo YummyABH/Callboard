@@ -29,10 +29,10 @@ const img = ref()
       <h2 class="max-md:text-base max-sm:text-base max-lg:text-xl text-2xl font-semibold text-green-300 inline-block mb-2">
         {{ props.title }}
       </h2>
-      <h3 class="max-md:text-sm max-sm:text-lg max-lg:mb-2 block text-xl font-medium text-white mb-4">
+      <h3 class="max-md:text-sm max-sm:text-lg max-lg:mb-2 block text-xl font-medium text-text-custom mb-4">
         {{ formattedPrice }} ₽
       </h3>
-      <div class="max-lg:text-xs max-h-[94px] text-gray-300 overflow-hidden">
+      <div class="max-lg:text-xs max-h-[94px] text-text-custom overflow-hidden">
         {{ props.subtitle }}
       </div>
     </div>
@@ -41,15 +41,15 @@ const img = ref()
         <span class="max-lg:text-base max-md:text-sm text-xl font-semibold text-gray-300">{{  }}</span>
       </div>
       <div class="grid max-md:gap-1 grid-cols-4 gap-2">
-        <div class="max-md:text-xs col-span-4 max-lg:my-0 my-1 text-gray-300">
-          Осталось: <span class="text-white max-lg:text-xs">{{ props.daysRemaining + ' дней'}}</span>
+        <div class="max-md:text-xs col-span-4 max-lg:my-0 my-1 text-text-custom">
+          Осталось: <span class="text-text-custom max-lg:text-xs">{{ props.daysRemaining + ' дней'}}</span>
         </div>
         <IconDelete @click="isOpen = !isOpen" title="Удалить" class="max-[374px]:hidden" />
         <RouterLink :to="'/user/my-ads/' + id + '/edit'">
           <IconPencil title="Редактировать" class="max-[374px]:hidden" />
         </RouterLink>
         <IconEye title="Просмотреть объявление" class="max-[374px]:hidden" />
-        <div class="hover:bg-gray-700 active:bg-gray-800 cursor-pointer duration-200 max-md:py-1 max-md:px-2 text-center col-span-4 py-2 px-4 text-white rounded-lg inline-block bg-gray-500">
+        <div class="hover:bg-gray-700 active:bg-gray-800 cursor-pointer duration-200 max-md:py-1 max-md:px-2 text-center col-span-4 py-2 px-4 text-text-custom rounded-lg inline-block bg-gray-500">
           Продлить
         </div>
       </div>

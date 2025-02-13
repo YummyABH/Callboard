@@ -106,7 +106,7 @@ const onPaste = (event) => {
     class="space-y-2"
     @paste="onPaste"
   >
-    <p class="text-sm max-lg:hidden">
+    <p class="text-sm text-text-custom max-lg:hidden">
       Перетащите фото сюда, вставьте из буфера обмена или
       <span class="text-text-custom underline cursor-pointer" @click="selectImages">
         выберите их на своем компьютере...
@@ -153,6 +153,6 @@ const onPaste = (event) => {
       </div>
     </div>
     <p v-if="errorMessage" class="text-red-500 text-sm">{{ errorMessage }}</p>
-    <span class="text-xs">Первое фото будет отображаться в результатах поиска, выберите наиболее удачное.</span>
+    <span class="text-text-custom text-xs">Первое фото будет отображаться в результатах поиска, выберите наиболее удачное.</span>
   </div>
 </template>

@@ -76,7 +76,7 @@ onMounted(async () => {
 
 <template>
   <ModalImage v-if="modelOpen" v-model:modalImg="modalImg.url" v-model:isOpen="modelOpen" />
-  <div class="mb-4 cursor-pointer flex gap-2 items-center" @click="goBack">
+  <div class="mb-4 text-text-custom cursor-pointer flex gap-2 items-center" @click="goBack">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -103,7 +103,7 @@ onMounted(async () => {
         autocomplete="off"
         name="name"
         maxlength="50"
-        class="max-md:col-span-full mb-6 max-lg:h-8 row-start-3 col-span-2 max-xl:col-span-3 rounded-sm border border-px border-gray-400 focus:border-white box-border duration-100 bg-gray-800 outline-hidden max-sm:py-4 max-lg:py-3.5 px-2 w-full"
+        class="max-md:col-span-full text-text-custom mb-6 max-lg:h-8 row-start-3 col-span-2 max-xl:col-span-3 rounded-sm border border-px border-gray-400 focus:border-white box-border duration-100 bg-gray-800 outline-hidden max-sm:py-4 max-lg:py-3.5 px-2 w-full"
         placeholder="Название"
         id="1"
       />
@@ -113,10 +113,10 @@ onMounted(async () => {
       </div>
 
       <div class="mb-6">
-        <span class="text-xl max-md:text-base font-medium inline-block mb-4"
+        <span class="text-xl text-text-custom max-md:text-base font-medium inline-block mb-4"
           >Контакты для связи:</span
         >
-        <div class="flex flex-col gap-3">
+        <div class="flex text-text-custom flex-col gap-3">
           <UploadFeedback v-model:feedbackTelegram="inputValues.feedback.telegram" v-model:feedbackTelephon="inputValues.feedback.telephone" v-model:feedbackWhatsapp="inputValues.feedback.whatsapp"/>
         </div>
       </div>
@@ -124,7 +124,7 @@ onMounted(async () => {
 
     <div class="col-span-6 w-full max-md:col-span-full">
       <div class="mb-6 flex max-md:mb-3">
-        <span class="text-xl font-medium inline-block mr-4">Цена:</span>
+        <span class="text-xl text-text-custom font-medium inline-block mr-4">Цена:</span>
         <div
           class="relative max-md:col-span-full max-lg:h-8 flex gap-2 row-start-4 col-span-2 max-xl:col-span-3"
         >
@@ -134,23 +134,23 @@ onMounted(async () => {
             v-maska="'###################'"
             autocomplete="off"
             name="price"
-            class="rounded-sm border border-px border-gray-400 focus:border-white lining-nums box-border duration-100 bg-gray-800 outline-hidden max-sm:py-4 max-lg:py-3.5 px-2 w-full"
+            class="rounded-sm text-text-custom border border-px border-gray-400 focus:border-white lining-nums box-border duration-100 bg-gray-800 outline-hidden max-sm:py-4 max-lg:py-3.5 px-2 w-full"
             id="1"
           />
         </div>
       </div>
 
-      <h2 class="text-2xl max-md:text-xl text-green-200 mb-2">Описание</h2>
+      <h2 class="text-2xl max-md:text-xl text-green-300 mb-2">Описание</h2>
       <div class="max-md:col-span-full mb-3 flex flex-col w-full gap-1 row-start-5 col-span-3">
         <textarea
           autocomplete="off"
           name="description"
           v-model="inputValues.description"
           maxlength="3000"
-          class="max-sm:text-xs max-md:min-h-8 rounded-md border border-px border-gray-400 focus:border-white py-0.5 min-h-20 field-sizing-content flex items-start lining-nums box-border outline-hidden duration-100 bg-gray-800 px-2"
+          class="max-sm:text-xs text-text-custom max-md:min-h-8 rounded-md border border-px border-gray-400 focus:border-white py-0.5 min-h-20 field-sizing-content flex items-start lining-nums box-border outline-hidden duration-100 bg-gray-800 px-2"
         >
         </textarea>
-        <span class="text-xs"
+        <span class="text-xs text-text-custom"
           >{{ inputValues?.description?.length ? inputValues.description.length : '0' }} /
           3000</span
         >
@@ -158,15 +158,15 @@ onMounted(async () => {
 
       <div class="flex gap-4">
         <span
-          class="text-xl max-md:text-lg font-medium inline-block max-sm:mb-2 mb-4 text-green-200"
+          class="text-xl max-md:text-lg font-medium inline-block max-sm:mb-2 mb-4 text-green-300"
           >Продавец:</span
         >
-        <div class="text-xl max-md:text-lg">{{ dataAd.firstName }}</div>
+        <div class="text-xl text-text-custom max-md:text-lg">{{ dataAd.firstName }}</div>
       </div>
 
       <div class="flex gap-4 max-md:mb-4">
         <span
-          class="text-xl max-sm:mb-0 max-md:text-lg font-medium inline-block mb-4 text-green-200"
+          class="text-xl max-sm:mb-0 max-md:text-lg font-medium inline-block mb-4 text-green-300"
           >Город:</span
         >
         <div class="relative max-md:col-span-full col-span-2 max-xl:col-span-3">
@@ -175,7 +175,7 @@ onMounted(async () => {
           @blur="openCities = false"
           v-model="inputValues.city"
           name="subcategory"
-          class="w-full max-lg:h-8 border border-px border-gray-400 focus:border-white cursor-pointer overflow-hidden z-10 font-normal pr-9 max-md:pr-0 text-sm appearance-none bg-gray-800 focus:outline-hidden focus:ring-0 max-lg:py-1 px-2 py-2 m-0"
+          class="w-full text-text-custom max-lg:h-8 border border-px border-gray-400 focus:border-white cursor-pointer overflow-hidden z-10 font-normal pr-9 max-md:pr-0 text-sm appearance-none bg-gray-800 focus:outline-hidden focus:ring-0 max-lg:py-1 px-2 py-2 m-0"
           id="sort-select"
         >
           <option @click="openCities = false" v-for="item in dataRegion" :value="item.id" :key="item.id">
